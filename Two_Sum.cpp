@@ -29,25 +29,4 @@ class Solution {
             sort(result.begin(),result.end());
             return result;
         }
-
-        vector<int> twoSum2(vector<int> &numbers, int target) {
-            map<int, int> hash;
-            vector<int> result;
-
-            for (int i = 0; i < numbers.size(); i++) {
-                if (hash.find(target - numbers[i]) != hash.end()) {
-                    if (i + 1 < hash[target - numbers[i]]) {
-                        result.push_back(i + 1);
-                        result.push_back(hash[target - numbers[i]]);
-                    } else {
-                        result.push_back(hash[target - numbers[i]]);
-                        result.push_back(i + 1);
-                    }
-                    break;
-                } else {
-                    hash[numbers[i]] = i + 1;
-                }
-            }
-            return result;
-        }
 };
