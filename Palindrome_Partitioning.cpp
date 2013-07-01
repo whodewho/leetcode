@@ -1,3 +1,6 @@
+/*
+	This is a recursion problem. Split the string into two part. Figure out the palindrome partition of the first parts and second parts. Multiplicat them, then you get the final answer. How to split the string? The first part must be a palindrome string. Here is the code.
+*/
 class Solution {
 public:
 
