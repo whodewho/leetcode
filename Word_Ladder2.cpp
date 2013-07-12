@@ -1,3 +1,10 @@
+/*
+    1.bfs first of course.but, we have to record the path, then dfs will work. 
+    2.if keep the next nodes, we go from start to end, we might do a lot useless work. otherwise, we keep the previous node, 
+    and we go from end to start, we always reach the start node.
+    3.how to keep the previous node without insert any same layer links? the cur and pre parameter is awsome! thanks to niaokedaoren!
+    keep in mind, queue can't split two layers.
+   */
 class Solution {
 public:
     vector<vector<string>> findLadders(string start, string end, unordered_set<string> &dict) {
