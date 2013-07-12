@@ -1,3 +1,6 @@
+//well that a trick.two transanctions,  if the the transanctions are on the two sides of one node
+//we need two arrays to store the left and right situation.
+//than ,get the max one
 class Solution {
 public:
     int maxProfit(vector<int> &prices) {
