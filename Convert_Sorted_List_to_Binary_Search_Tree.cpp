@@ -20,6 +20,7 @@
     his 'while' is better. 
     he used three arguments, saving one iteration each recursion.
     mine is O(n*n), dame it.
+    but, his is just a little faster than mine.
    */
 class Solution {
     public:
