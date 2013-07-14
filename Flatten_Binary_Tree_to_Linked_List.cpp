@@ -11,6 +11,8 @@
     first time, I thought I came up with a solution better than anson's.
     the second is clear, but neet more whiles.
     the first is more efficient, but use return value, more complicated
+   
+    at first, I frogot to clear the left link. thanks to pinder and oilbeater.
    */
 class Solution {
     public:
