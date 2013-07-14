@@ -10,6 +10,7 @@
    again, anson have two better ideas.
    with the next link,  we can use bfs without extra space, awsome.
    what's more, dfs is also possible. thanks anson!
+   every father node's next link is already filled. remember! 
  */
 class Solution {
     public:
