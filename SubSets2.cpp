@@ -1,8 +1,11 @@
 /*
-    yes, dfs
-    first, sort! second, count! third, go deep! no duplication!
-    will check anson's later
-   */
+   yes, dfs 
+   first, sort! second, count! third, go deep! no duplication!
+   will check anson's later
+   the second solution is anson's, not better than mine. Two much duplication.
+   in fact, its force solution.
+   however, the i<<N is smart, maybe i will use it later.
+ */
 class Solution {
     public:
         vector<vector<int> > subsetsWithDup(vector<int> &S) {
@@ -41,5 +44,27 @@ class Solution {
                 for(int j=0;j<i;j++)
                     item.pop_back();
             }
+        }
+
+        vector<vector<int> > subsets(vector<int> &S) {
+            int N = S.size();
+            int max = 1 << N;
+            vector<vector<int> > res;
+            for (int i = 0; i < max; i++) {
+                vector<int> sub;
+                int k = i;
+                int j = 0;
+                while (k > 0) {
+                    if (k & 0x01) sub.push_back(S[j]);
+                    k >>= 1;
+                    j++;
+                }
+                sort(sub.begin(), sub.end());
+                if (find(res.begin(), res.end(), sub) == res.end()) {
+                    res.push_back(sub);
+                }
+            }
+            sort(res.begin(), res.end());
+            return res;
         }
 };
