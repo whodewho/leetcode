@@ -1,6 +1,7 @@
 /*
-    the second is anson's, which is better?
     O(2n) and O(n)
+    0011xxxx2
+    low=2 mid=4 high=7
    */
 class Solution {
     public:
