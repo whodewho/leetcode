@@ -1,9 +1,10 @@
 /*
-    nothing special, you just need a good sort algorithm
-    quick sort, n(log(n)) is a must
-    wrote two quick sorts, both cool, long time no see
-    I don't know why the STL sort does not work on leetcode, is that supposed to be a sort question?
-   */
+   nothing special, you just need a good sort algorithm
+   quick sort, n(log(n)) is a must
+   wrote two quick sorts, both cool, long time no see
+   I don't know why the STL sort does not work on leetcode, is that supposed to be a sort question?
+   I checked anson's code, found another way to support STL sort. another bunos...
+ */
 #include <iostream>
 #include <stdio.h>
 #include <vector>
@@ -33,6 +34,12 @@ struct Interval {
 bool compare(Interval first, Interval second) {
     return first.start < second.start;
 }
+
+struct StartIncreasing {
+    bool operator()(const Interval &a, const Interval &b) {
+        return a.start < b.start;
+    }
+} start_increasing;
 
 void swap(int i, int j, vector<Interval> &intervals) {
     Interval tmp = intervals[i];
@@ -110,6 +117,7 @@ vector<Interval> merge(vector<Interval> &intervals) {
     // DO NOT write int main() function
 
     //sort(intervals.begin(), intervals.end(), compare);
+    sort(intervals.begin(), intervals.end(), start_increasing);
     quick_sort(intervals, 0, intervals.size() - 1);
     quickSort(0, intervals.size() - 1, intervals);
 
