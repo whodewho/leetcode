@@ -117,6 +117,7 @@ vector<Interval> merge(vector<Interval> &intervals) {
     // DO NOT write int main() function
 
     //sort(intervals.begin(), intervals.end(), compare);
+    //this does not work, but in eclipse, it's ok
     sort(intervals.begin(), intervals.end(), start_increasing);
     quick_sort(intervals, 0, intervals.size() - 1);
     quickSort(0, intervals.size() - 1, intervals);
