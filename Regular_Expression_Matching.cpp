@@ -1,4 +1,9 @@
 //http://blog.csdn.net/hopeztm/article/details/7992253
+/*
+    c* means "" or "cccc..."
+    not "c" or "cccc...." 
+    * match 0 or more preceding...I didn't get it until one minute ago
+   */
 class Solution {
     public:
         bool isMatch(const char *s, const char *p) {
