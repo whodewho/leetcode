@@ -2,8 +2,9 @@
     the first, time limit exceed
     the second, same as the first
     the third, anson's code, perfect
-    what's the difference with regression_match below, cover and equal? i don't see it
-    ambigurous.
+    what's the difference with regression_match below?
+    here isMatch("aab","c*a*b") false
+    below true, the "*" is different
    */
 class Solution {
     public:
