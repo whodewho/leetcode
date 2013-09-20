@@ -1,6 +1,6 @@
 /*
    the second is mine, i don't know why it does not work on leetcode, but in eclipse, it's ok
-   the first is anson's, awsome! for permutations2, it kills
+   the first is anson's, good
  */
 class Solution {
     public:
