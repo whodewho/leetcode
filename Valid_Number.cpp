@@ -1,5 +1,6 @@
 /*
    the second is anson's, mine is bad, no, shit
+   look at my second try, only beauty can work
  */
 class Solution {
     public:
@@ -113,6 +114,52 @@ class Solution {
                     return false;
                 }
                 s++;
+            }
+            return num;
+        }
+
+
+        bool isNumber(const char *s) {
+            // Start typing your C/C++ solution below
+            // DO NOT write int main() function
+            int j=strlen(s)-1;
+            int i=0;
+            while(isspace(s[i]))i++;
+            if(s[i]=='+'||s[i]=='-')i++;
+            while(isspace(s[j]))j--;
+            if(i>j)return false;
+
+            bool exp=false,point=false,num=false;
+            while(i<=j)
+            {
+                if(isdigit(s[i]))
+                {
+                    num=true;
+                }
+                else if(s[i]=='.')
+                {
+                    if(point||exp)return false;
+                    point=true;
+
+                }
+                else if(s[i]=='e')
+                {
+                    if(!num||exp)return false;
+                    exp=true;
+                    num=false;
+                }
+                else if(s[i]=='+'||s[i]=='-')
+                {
+                    if(!exp||s[i-1]!='e')
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+                i++;
             }
             return num;
         }
