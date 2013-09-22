@@ -3,6 +3,7 @@
    long time no see, leetcode. long time no see, anson. let me check yours.
    anson, yours is better. I thougt of that, however, at last, turned to this one
    the second one is anson's, n*n than mine n*n*n. be careful of the first line and row
+   look at my last try
  */
 class Solution {
     public:
@@ -83,5 +84,41 @@ class Solution {
                     matrix[i][0] = 0;
                 }
             }
+        }
+
+        void setZeroes(vector<vector<int> > &matrix) {
+            // Start typing your C/C++ solution below
+            // DO NOT write int main() function
+            int m=matrix.size();
+            if(!m)return;
+            int n=matrix[0].size();
+            if(!n)return;
+            vector<int> head(n,1);
+            for(int i=0;i<m;i++)
+            {
+                bool sign=false;
+                for(int j=0;j<n;j++)
+                {
+                    if(matrix[i][j]==0)
+                    {
+                        sign=true;
+                        head[j]=0;
+                    }
+                }
+                if(sign)
+                {
+                    for(int j=0;j<n;j++)
+                        matrix[i][j]=0;
+                }
+            }
+            for(int j=0;j<n;j++)
+            {
+                if(head[j]==0)
+                {
+                    for(int i=0;i<m;i++)
+                        matrix[i][j]=0;
+                }
+            }
+            return;
         }
 };
