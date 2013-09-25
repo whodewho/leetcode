@@ -6,6 +6,8 @@ formular:table[i+1][j+1]=table[i][j+1]&&s1[i]==s3[i+j+1]||table[i+1][j]&&s2[j]==
     count s3 carefully.
     let me see anson's solution.
     he came up with this two solutions too.
+    
+    mine is better
    */
 class Solution {
     public:
