@@ -45,6 +45,7 @@ class Solution {
             }
         }
 
+        /*
         //bfs with less space 
         void connect(TreeLinkNode *root) {
             // Start typing your C/C++ solution below
@@ -92,4 +93,5 @@ class Solution {
             if(root->left)connect(root->left);
             if(root->right)connect(root->right);
         }
+        */
 };
