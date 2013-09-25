@@ -29,6 +29,7 @@ class Solution {
             return worker(lchild->left,rchild->right)&&worker(lchild->right,rchild->left);
         }
 
+        /*
         bool isSymmetric(TreeNode *root) {
             // Start typing your C/C++ solution below
             if(root==NULL)return true;
@@ -63,4 +64,5 @@ class Solution {
             }
             return true;
         }
+        */
 };
