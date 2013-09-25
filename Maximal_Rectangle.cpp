@@ -1,7 +1,7 @@
 /*
     from anson, good job.
     the dirty "fill(begin,end,val)", be careful.
-    dp does not work here, you can get a[i][j] from a[i-1][j],a[i][j-1],a[i-1][j-1]
+    dp does not work here, you can not get a[i][j] from a[i-1][j],a[i][j-1],a[i-1][j-1]
    */
 class Solution {
     public:
