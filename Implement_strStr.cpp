@@ -1,3 +1,6 @@
+/*
+    the second, kmp
+*/
 class Solution {
     public:
         char *strStr(char *haystack, char *needle) {
@@ -20,4 +23,38 @@ class Solution {
             }
             return NULL;
         }
+        
+        
+void compute_prefix(char* p, int m, vector<int>& pr) {
+	pr[0]=-1;
+	int k = -1;  
+	for(int i  = 1; i < m; i++)  
+	{  
+		while(k > -1 && p[k+1] != p[i]) k = pr[k];  
+		if(p[k+1] == p[i]) k = k+1;  
+		pr[i] = k;  
+	}  
+}
+
+char *strStr(char *haystack, char *needle) 
+{
+	int n=strlen(haystack);
+	int m=strlen(needle);
+	vector<int> pr(m+1);
+	if(m==0)return haystack;
+
+	compute_prefix(needle,m,pr);
+
+	int j=-1;
+	for(int i=0;i<n;i++)
+	{
+		while(j>-1&&needle[j+1]!=haystack[i])j=pr[j];
+		if(needle[j+1]==haystack[i])j=j+1;
+		if(j==m-1)
+		{
+			return haystack+i-m+1;
+		}
+	}
+	return NULL;
+}
 };
