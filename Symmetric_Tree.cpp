@@ -10,6 +10,8 @@
 /*
     the second solution, bfs, does not work. leetcode is mad today. i can't see the input of wrong answer.
     need to fix the bug later. anson, you are lazy this time.
+    
+    sure the second won't work
    */
 class Solution {
     public:
