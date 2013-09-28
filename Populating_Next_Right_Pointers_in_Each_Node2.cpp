@@ -8,6 +8,8 @@
  */
 /*
    a slight change of question one will work on this.
+   the second two does't work. shit how did I upload them here
+   check anson's,his is right
  */
 class Solution {
     public: 
@@ -43,6 +45,7 @@ class Solution {
             }
         }
 
+        /*
         //bfs with less space 
         void connect(TreeLinkNode *root) {
             // Start typing your C/C++ solution below
@@ -90,4 +93,5 @@ class Solution {
             if(root->left)connect(root->left);
             if(root->right)connect(root->right);
         }
+        */
 };

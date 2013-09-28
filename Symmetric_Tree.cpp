@@ -10,6 +10,8 @@
 /*
     the second solution, bfs, does not work. leetcode is mad today. i can't see the input of wrong answer.
     need to fix the bug later. anson, you are lazy this time.
+    
+    sure the second won't work
    */
 class Solution {
     public:
@@ -27,6 +29,7 @@ class Solution {
             return worker(lchild->left,rchild->right)&&worker(lchild->right,rchild->left);
         }
 
+        /*
         bool isSymmetric(TreeNode *root) {
             // Start typing your C/C++ solution below
             if(root==NULL)return true;
@@ -61,4 +64,5 @@ class Solution {
             }
             return true;
         }
+        */
 };
