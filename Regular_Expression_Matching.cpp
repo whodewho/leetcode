@@ -5,6 +5,7 @@
    match 0 or more preceding...I didn't get it until one minute ago
 
    every recursion way has a iteration alteration
+http://discuss.leetcode.com/questions/175/regular-expression-matching
  */
 class Solution {
     public:
@@ -69,7 +70,7 @@ class Solution {
                                       }
                                   } else {
                                       int j = 1;
-                                        // '.'首次匹配后的所有位置都能配上
+                                      // '.'首次匹配后的所有位置都能配上
                                       while (!dp[i - 2][j] && j <= slen && !dp[i - 1][j])
                                           j++;
                                       for (; j <= slen; j++) {
