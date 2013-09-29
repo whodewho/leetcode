@@ -1,3 +1,7 @@
+/*
+    don't set i with type size_t 
+    i could be negative, it will go crazy
+   */
 class Solution {
     public:
         vector<int> plusOne(vector<int> &digits) {
