@@ -1,6 +1,8 @@
 /*
    does not make too much sense
    haha, anson is learning
+
+   second try, iterative way, that's interesting, exceed time limit
  */
 class Solution {
     public:
@@ -36,11 +38,8 @@ class Solution {
             }
         }
 
-        //iterative way
-        #define N 10 
-        int x[N] = { 0 };
-
-        int place(int k) //判断是否符合要求；
+        // second try, iterative way
+        int place(int k,vector<int>& x) //判断是否符合要求；
         {
             int j;
             for (j = 0; j < k; j++) {
@@ -49,17 +48,25 @@ class Solution {
             }
             return 1;
         }
-        void queen(int &count) {
+
+        int totalNQueens(int n) {
+            // Start typing your C/C++ solution below
+            // DO NOT write int main() function
+            int count=0;
+            vector<int> x(n,-1);
+
             int i, k;
             x[0] = -1;
             k = 0;
             while (k >= 0) {
                 x[k] += 1;
-                while ((x[k] < N) && !(place(k)))
+                while ((x[k] < n) && !(place(k,x)))
                     x[k] += 1;
-                if (x[k] < N) {
-                    if (k == N - 1)
+                if (x[k] < n) {
+                    if (k == n- 1)
+                    {
                         count++; //k=N-1 表示也可构成一个排法；
+                    }
                     else {
                         k++;
                     }
@@ -68,5 +75,6 @@ class Solution {
                     k--;
                 }
             }
+            return count;
         }
 };
