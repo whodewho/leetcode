@@ -9,13 +9,13 @@
  */
 
 /*
-    the first solution is mine, the rest three are anson's.
-    mine is about same with his first, light difference.
-    INT_MIN, INI_MAX, yes, than he applied floor and ceil. This is O(n).
-    I thought of this too, but I do not know this tow constants until now.
-    as his third solution, in-order wolk and check if it is no-decreasing.
-    smart.
-   */
+   the first solution is mine, the rest three are anson's.
+   mine is about same with his first, light difference.
+   INT_MIN, INI_MAX, yes, than he applied floor and ceil. This is O(n).
+   I thought of this too, but I do not know this tow constants until now.
+   as his third solution, in-order wolk and check if it is no-decreasing.
+   smart.
+ */
 class Solution {
     public:
         bool isValidBST(TreeNode *root) {
@@ -41,6 +41,23 @@ class Solution {
             return root->val<father&&validLeft(root->left,father)&&validLeft(root->right,father);
         }
 
+        //second try, almost same with anson's last one
+        bool inOrder(TreeNode* currNode,TreeNode* &preNode)
+        {
+            if(!currNode)return true;
+
+            if(!inOrder(currNode->left,preNode))return false;
+            if(preNode&&preNode->val>=currNode->val)return false;
+            preNode=currNode;
+            if(!inOrder(currNode->right,preNode))return false;
+            return true;
+        }
+
+        bool isValidBST(TreeNode *root) {
+            // Note: The Solution object is instantiated only once and is reused by each test case.
+            TreeNode* preNode=NULL;
+            return inOrder(root,preNode);
+        }
 
         // pre-order walk with looking up min and max
         // takes O(n*log(n)) time
