@@ -1,8 +1,10 @@
 /*
-    from anson, good job.
-    the dirty "fill(begin,end,val)", be careful.
-    dp does not work here, you can not get a[i][j] from a[i-1][j],a[i][j-1],a[i-1][j-1]
-   */
+   from anson, good job.
+   the dirty "fill(begin,end,val)", be careful.
+   dp does not work here, you can not get a[i][j] from a[i-1][j],a[i][j-1],a[i-1][j-1]
+
+   look at the second try, almost same
+ */
 class Solution {
     public:
         int maximalRectangle(vector<vector<char> > &matrix) {
@@ -95,4 +97,61 @@ class Solution {
             }
             return res;
         };
+
+
+
+        //second try
+        int maximalRectangle(vector<vector<char> > &matrix) {
+            // Note: The Solution object is instantiated only once and is reused by each test case.
+            int m=matrix.size();
+            if(!m)return 0;
+            int n=matrix[0].size();
+            if(!n)return 0;
+
+            int result=0;
+            vector<int> h(n,0);
+            for(int i=0;i<m;i++)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    if(matrix[i][j]=='0')
+                        h[j]=0;
+                    else
+                        h[j]++;
+                }
+
+                vector<int> leftBars(n,0);
+                stack<int> leftStack;
+                for(int j=0;j<n;j++)
+                {
+                    while(!leftStack.empty()&&h[leftStack.top()]>=h[j])
+                        leftStack.pop();
+                    if(leftStack.empty())
+                        leftBars[j]=h[j]*j;
+                    else
+                        leftBars[j]=h[j]*(j-leftStack.top()-1);
+                    leftStack.push(j);
+                }
+
+                vector<int> rightBars(n,0);
+                stack<int> rightStack;
+                for(int j=n-1;j>=0;j--)
+                {
+                    while(!rightStack.empty()&&h[rightStack.top()]>=h[j])
+                        rightStack.pop();
+                    if(rightStack.empty())
+                        rightBars[j]=h[j]*(n-j-1);
+                    else
+                        rightBars[j]=h[j]*(rightStack.top()-j-1);
+                    rightStack.push(j);
+                }
+
+                for(int j=0;j<n;j++)
+                {
+                    result=max(result,leftBars[j]+h[j]+rightBars[j]);
+                }
+            }
+
+            return result;
+        }
 };
