@@ -61,7 +61,7 @@ class Solution {
                                   if (p[i - 2] != '.') {
                                       //*号不用,dp[i-1][j]
                                       //'p[i-2]*'不用,i>=2 && dp[i-2][j]
-                                      //'p[i-2]*'用上,j>=2dp[i][j-1]&&s[j-1]==s[j-2]&&s[j-2]==p[j-2], so complicated
+                                      //'p[i-2]*'用上,j>=2dp[i][j-1]&&s[j-1]==s[j-2]&&s[j-2]==p[i-2], so complicated
                                       for (int j = 1; j <= slen; j++) {
                                           if (dp[i - 1][j] || (i >= 2 && dp[i - 2][j])
                                                   || (j >= 2 && dp[i][j - 1] && s[j - 1] == s[j - 2]
