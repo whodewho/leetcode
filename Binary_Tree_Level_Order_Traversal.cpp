@@ -31,7 +31,7 @@ class Solution {
             res.push_back(tmp);
             while(true){
                 cur=!cur;
-                pre=!cur;
+                pre=!pre;
                 table[cur].clear();
                 vector<int> tmp;
                 for(int i=0;i<table[pre].size();i++)
