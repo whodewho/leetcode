@@ -23,6 +23,7 @@
     but, his is just a little faster than mine.
     
     here I am again, I don't get it, can anson's build a balanced, look at the head pointer, need check later
+    here I am again, be careful, the head argument is a referrence
    */
 class Solution {
     public:
