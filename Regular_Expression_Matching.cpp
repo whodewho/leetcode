@@ -59,9 +59,9 @@ class Solution {
                                   if (i < 2)
                                       continue;
                                   if (p[i - 2] != '.') {
-                                      //*号不用,dp[i-1][j]
-                                      //'p[i-2]*'不用,i>=2 && dp[i-2][j]
-                                      //'p[i-2]*'用上,j>=2dp[i][j-1]&&s[j-1]==s[j-2]&&s[j-2]==p[i-2], so complicated
+                                      //*号不用,dp[i-1][j]，匹配1个
+                                      //'p[i-2]*'不用,i>=2 && dp[i-2][j], 匹配0
+                                      //'p[i-2]*'用上,j>=2dp[i][j-1]&&s[j-1]==s[j-2]&&s[j-2]==p[i-2], so complicated，匹配>1个
                                       for (int j = 1; j <= slen; j++) {
                                           if (dp[i - 1][j] || (i >= 2 && dp[i - 2][j])
                                                   || (j >= 2 && dp[i][j - 1] && s[j - 1] == s[j - 2]
