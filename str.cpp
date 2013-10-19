@@ -61,3 +61,23 @@ char* strncat(char *dest, const char *src, size_t n) {
 
     return dest;
 }
+
+void * memcpy1(void *dest, const void *src, size_t n)
+{
+    assert(dest!=NULL&&src!=NULL);    //有效性检测
+    if(dest == src)
+        return dest;
+    else if(dest < src)
+    {
+        const char *c_src = static_cast<const char *>(src);
+        char *c_dest = static_cast<char *>(dest);
+        while (n--) *c_dest++ = *c_src++;
+    }
+    else
+    {
+        const char *c_src = static_cast<const char *>(src) + n - 1;
+        char *c_dest = static_cast<char *>(dest) + n - 1;
+        while (n--) *c_dest-- = *c_src--;
+    }
+    return dest;
+}
