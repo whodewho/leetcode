@@ -4,7 +4,8 @@
 
    two pointer running, the second way, cool too
 
-   the third, you may suffer, not quite well tested, but also good
+   the third, you may suffer, not quite well tested, but also good, only beauty works
+   
  */
 
 class Solution
