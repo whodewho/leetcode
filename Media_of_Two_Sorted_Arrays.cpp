@@ -2,9 +2,9 @@
    better than anson's, maybe I met this problem half a year ago, now, I just can't remember
    findKth, awsome!always let a be the shorter array
 
-   findKth, two way, major different at the pa,pb
+   two pointer running, the second way, cool too
 
-   two pointer running, the third way, cool too
+   the third, you may suffer, not quite well tested, but also good
  */
 
 class Solution
