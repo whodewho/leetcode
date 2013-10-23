@@ -8,11 +8,10 @@
  * };
  */
 /*
-    the second solution, bfs, does not work. leetcode is mad today. i can't see the input of wrong answer.
-    need to fix the bug later. anson, you are lazy this time.
-    
-    sure the second won't work
-   */
+   the second solution, bfs, does not work. leetcode is mad today. i can't see the input of wrong answer.
+   need to fix the bug later. anson, you are lazy this time.
+
+ */
 class Solution {
     public:
         bool isSymmetric(TreeNode *root) {
@@ -29,9 +28,8 @@ class Solution {
             return worker(lchild->left,rchild->right)&&worker(lchild->right,rchild->left);
         }
 
-        /*
         bool isSymmetric(TreeNode *root) {
-            // Start typing your C/C++ solution below
+            // Note: The Solution object is instantiated only once and is reused by each test case.
             if(root==NULL)return true;
             queue<TreeNode *> queue;
             int cur=1,nex=0;
@@ -52,17 +50,24 @@ class Solution {
                 if(cur==0)
                 {
                     int i=0,j=level.size()-1;
+                    if((j+1)%2!=0)return false;
                     while(i<j)
                     {
-                        if(level[i++]!=level[j--])return false;
+                        if (level[i] == NULL && level[j] != NULL||level[i] != NULL && level[j] == NULL)
+                        {
+                            return false;
+                        }
+                        if(!(level[i]==NULL&&level[j]==NULL)&&(level[i]->val != level[j]->val))
+                            return false;
+                        i++;
+                        j--;
                     }
 
                     level.clear();
                     cur=nex;
-                    cur=0;
+                    nex=0;
                 }
             }
             return true;
         }
-        */
 };
