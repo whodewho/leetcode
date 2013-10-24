@@ -5,6 +5,8 @@
    the second solution is anson's, not better than mine. Two much duplication.
    in fact, its force solution.
    however, the i<<N is smart, maybe i will use it later.
+
+   third one, second try, tidy
  */
 class Solution {
     public:
@@ -66,5 +68,33 @@ class Solution {
             }
             sort(res.begin(), res.end());
             return res;
+        }
+
+        void worker(int i,vector<int>& S, vector<int>& path,vector<vector<int> >& result)
+        {
+            if(i==S.size())
+            {
+                result.push_back(path);
+                return;
+            }
+
+            int j=i+1;
+            while(j<S.size()&&S[j]==S[i])j++;
+            for(int k=0;k<=j-i;k++)
+            {
+                for(int t=0;t<k;t++)path.push_back(S[i]);
+                worker(j,S,path,result);
+                for(int t=0;t<k;t++)path.pop_back();
+            }
+        }
+
+        vector<vector<int> > subsetsWithDup(vector<int> &S) {
+            // Note: The Solution object is instantiated only once and is reused by each test case.
+            vector<vector<int> > result;
+            vector<int> path;
+            sort(S.begin(),S.end());
+
+            worker(0,S,path,result);
+            return result;
         }
 };
