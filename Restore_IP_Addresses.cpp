@@ -1,7 +1,9 @@
 /*
-    the second solution, force loop. however, I don't regard this as fool thing.
-    the first solution, yes, dfs. I checked, anson use this too. my pleasure.
-   */
+   the second solution, force loop. however, I don't regard this as fool thing.
+   the first solution, yes, dfs. I checked, anson use this too. my pleasure.
+
+   the third one, second try
+ */
 class Solution {
     public:
         vector<string> restoreIpAddresses(string s) {
@@ -82,5 +84,49 @@ class Solution {
                 }
             }
             return res;
+        }
+
+
+        void worker(int i,int k,string& s,string path,vector<string>& result)
+        {
+            if(k==4)
+            {
+                if(i==s.size())
+                    result.push_back(path);
+                return;
+            }
+
+            if(s[i]=='0')
+            {
+                if(k==0)
+                    worker(i+1,k+1,s,path+"0",result);
+                else
+                    worker(i+1,k+1,s,path+".0",result);
+                return;
+            }
+
+            for(int j=1;j<=3&&i+j+3-k<=s.size();j++)
+            {
+                stringstream str;
+                str<<s.substr(i,j);
+                int t=0;
+                str>>t;
+                if(t>=0&&t<=255)
+                {
+                    if(k==0)
+                        worker(i+j,k+1,s,path+s.substr(i,j),result);
+                    else
+                        worker(i+j,k+1,s,path+"."+s.substr(i,j),result);
+                }
+            }
+        }
+
+        vector<string> restoreIpAddresses(string s) {
+            // Note: The Solution object is instantiated only once and is reused by each test case.
+            vector<string> result;
+            if(s.empty())return result;
+
+            worker(0,0,s,"",result);
+            return result;
         }
 };
