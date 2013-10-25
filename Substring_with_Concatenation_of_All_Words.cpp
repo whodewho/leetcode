@@ -1,6 +1,9 @@
 /*
     the second is anson's, mine exceed the time limites.
     compare the two, two map, one map and a copy, that's the difference
+
+    as for the S.size()-m*n, be careful about the significant bit
+    static_cast is necessary
    */
 class Solution {
     public:
