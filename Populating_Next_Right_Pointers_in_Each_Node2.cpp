@@ -10,6 +10,8 @@
    a slight change of question one will work on this.
    the second two does't work. shit how did I upload them here
    check anson's,his is right
+
+   can be done with O(1), at youdao, save it for you
  */
 class Solution {
     public: 
