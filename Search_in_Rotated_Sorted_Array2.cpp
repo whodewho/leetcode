@@ -1,6 +1,8 @@
 /*
    find the reset point first, then two binary search(in fact, one, if)
    the second is anson's, linear time, but is faster than mine log(n)... 
+
+   third one, second try, better
  */
 class Solution {
     public:
@@ -62,5 +64,30 @@ class Solution {
                 if (A[i] == target) return true;
             }
             return false;
+        }
+
+        bool search(int A[], int n, int target) {
+
+            // Note: The Solution object is instantiated only once and is reused by each test case.
+            int l = 0, u = n - 1;
+            while (l <= u) {
+                int m = l + (u - l) / 2;
+                if (A[m] == target) return 1;
+                if(A[l]==A[u])
+                {
+                    l++;
+                    continue;
+                }
+
+                if (A[m] >= A[l]) {
+                    if (A[l] <= target && target < A[m]) u = m - 1;
+                    else l = m + 1;
+                }
+                else {
+                    if (A[m] < target && target <= A[u]) l = m + 1;
+                    else u = m - 1;
+                }
+            }
+            return 0;
         }
 };
