@@ -56,15 +56,11 @@ class Solution {
             stack<TreeNode *>stk;
             TreeNode* curr=node;
             while(!stk.empty()||curr!=NULL){
-                if(curr)
+                while(curr)
                 {
                     stk.push(curr);
-                    while(curr->left)
-                    {
-                        stk.push(curr);
-                        curr=curr->left;
-                    }
-                }		
+                    curr=curr->left;
+                }
 
                 if(!stk.empty()&&stk.top()->right&&stk.top()->right->visited==false)
                 {
