@@ -1,36 +1,8 @@
 /*
-   the second is anson's, his is better
-   book, letter, code, I am never alone
+O(N)
  */
 class Solution {
     public:
-        int lengthOfLastWord(const char *s) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            int num=0,i=0;
-            bool space=false;
-            while(s[i]!='\0')
-            {
-                if(s[i]==' ')
-                {
-                    space=true;
-                }
-                else
-                {
-                    if(space)
-                    {
-                        num=1;
-                        space=false;
-                    }
-                    else
-                    {
-                        num++;
-                    }
-                }
-                i++;
-            }
-            return num;
-        }
 
         int lengthOfLastWord(const char *s) {
             int N = strlen(s);

@@ -8,8 +8,7 @@
  * };
  */
 /*
-    could this be more succient? just stop recursion at if(root==NULL)?
-    it won't work. dup path will be push_backed in res.
+    O(N)
    */
 class Solution {
     public:
@@ -22,6 +21,7 @@ class Solution {
             worker(root,sum,res,path);
             return res;
         }
+
         void worker(TreeNode *root,int sum,vector<vector<int>> &res,vector<int> path)
         {
             if(root->left==NULL&&root->right==NULL)

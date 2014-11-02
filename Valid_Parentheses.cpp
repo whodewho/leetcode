@@ -1,6 +1,8 @@
 /*
     0 milli secs on large data, I am on fire!
    */
+//O(N)
+//O(N)
 class Solution {
     public:
         bool isValid(string s) {

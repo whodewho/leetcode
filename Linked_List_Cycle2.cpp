@@ -6,6 +6,9 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+ //O(N)
+ 
 class Solution {
     public:
         ListNode *detectCycle(ListNode *head) {

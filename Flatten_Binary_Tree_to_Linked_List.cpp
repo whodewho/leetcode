@@ -13,7 +13,10 @@
     the first is more efficient, but use return value, more complicated
    
     at first, I frogot to clear the left link. thanks to pinder and oilbeater.
-   */
+*/
+/*
+O(N)
+*/
 class Solution {
     public:
         void flatten(TreeNode *root) {

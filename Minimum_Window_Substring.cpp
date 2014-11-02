@@ -4,6 +4,9 @@
     hasfound->counts
 
    */
+
+//O(M+N)
+    
 class Solution {
     public:
         string minWindow(string S, string T) {

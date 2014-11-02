@@ -1,5 +1,5 @@
 /*
-    be careful about the (i,j), the length.
+    O(N*N)
    */
 class Solution {
     public:

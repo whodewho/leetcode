@@ -1,9 +1,7 @@
 /*
-   sort, than dfs will work
-   this is anson's, better
-
-   the input become harder, revise one
-   */
+   O(n*n)
+   O(1)
+ */
 
 
 class Solution {

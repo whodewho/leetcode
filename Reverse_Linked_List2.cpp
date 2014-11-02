@@ -7,10 +7,7 @@
  * };
  */
 /*
-    from anson.
-    can't be better.
-    when you spend too much time on one question, it's time to seek a solution.
-    don't be too silly, get stuck in interview like this, you already suck.  
+ O(N)
    */
 class Solution {
     public:

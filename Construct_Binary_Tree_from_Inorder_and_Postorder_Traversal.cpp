@@ -8,8 +8,10 @@
  * };
  */
 /*
-    in anson's way.
-   */
+O(N)
+
+*/
+
 class Solution {
     public:
         TreeNode *buildTree(vector<int> &inorder, vector<int> &postorder) {
@@ -21,7 +23,7 @@ class Solution {
         TreeNode *worker(vector<int>::iterator ii,vector<int>::iterator pi,int length)
         {
             if(length==0)return NULL;
-            int newLength=find(ii,ii+length-1,*(pi+length-1))-ii;
+            int newLength=find(ii,ii+length,*(pi+length-1))-ii;
             TreeNode *res=new TreeNode(pi[length-1]);
             res->left=worker(ii,pi,newLength);
             res->right=worker(ii+newLength+1,pi+newLength,length-newLength-1);

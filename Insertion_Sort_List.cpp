@@ -7,6 +7,7 @@
  * };
  */
 
+//O(N*N)
 class Solution {
 	public:
 		ListNode *insertionSortList(ListNode *head) {
@@ -28,17 +29,11 @@ class Solution {
 				while (runner->next && runner->next->val < head->val) {
 					runner = runner->next;
 				}
-				if (!runner->next) {
-					ListNode* tmp = head->next;
-					runner->next = head;
-					head->next = NULL;
-					head = tmp;
-				} else {
-					ListNode* tmp = head->next;
-					head->next = runner->next;
-					runner->next = head;
-					head = tmp;
-				}
+
+				ListNode* tmp=head->next;
+				head->next=runner->next;
+				runner->next=head;
+				head=tmp;
 			}
 			return nHead;
 		}

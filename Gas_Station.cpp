@@ -1,6 +1,4 @@
 /*
-   interesting question, when sum<0, i go back
-   when sum>=0 j go forward, after n steps, check the sum, you will see
    O(n)
  */
 class Solution {

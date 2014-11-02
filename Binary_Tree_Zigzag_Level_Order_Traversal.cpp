@@ -7,11 +7,10 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-/*
-   as anson mentioned, stack is also a choice. 
-   however, i prefer only one queue, tow level counter.
-   the second solution is from anson.
- */
+
+//O(N)
+//O(N)
+ 
 class Solution {
     public:
         vector<vector<int> > zigzagLevelOrder(TreeNode *root) {

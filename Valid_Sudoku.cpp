@@ -2,6 +2,7 @@
     compare with next question, this is not cool at all
     code from anson, not accurate, however, the boundary is low
    */
+//O(N^2)
 class Solution {
     public:
         bool isValidSudoku(vector<vector<char> > &board) {

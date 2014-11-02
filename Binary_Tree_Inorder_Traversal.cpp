@@ -7,10 +7,9 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-/*
-   the second solution is anson's. 
-   my iterative version is almost same, but not work, so, it's different.
- */
+//O(N)
+//O(N)
+
 class Solution {
     public:
         vector<int> inorderTraversal(TreeNode *root) {
@@ -49,32 +48,32 @@ class Solution {
             return result;
         }
 
-        vector<int> postorderTraversal(TreeNode *node)
-        {
+        vector<int> postorderTraversal(TreeNode *root) {
             vector<int> result;
-            if(node ==NULL )return result;
-            stack<TreeNode *>stk;
-            TreeNode* curr=node;
-            while(!stk.empty()||curr!=NULL){
-                while(curr)
+            if(!root)return result;
+            stack<TreeNode*> stk;
+            while(!stk.empty()||root!=NULL)
+            {
+                if(root)
                 {
-                    stk.push(curr);
-                    curr=curr->left;
-                }
-
-                if(!stk.empty()&&stk.top()->right&&stk.top()->right->visited==false)
-                {
-                    curr=stk.top()->right;
-                    curr->visited=true;
+                    stk.push(root);
+                    root=root->left;
                 }
                 else
                 {
-                    curr=stk.top();
-                    stk.pop();
-                    result.push_back(curr);
-                    curr=NULL;
+                    TreeNode* tmp=stk.top();
+                    if(!(tmp->right)||!result.empty()&&result[result.size()-1]==tmp->right->val)
+                    {
+                        result.push_back(tmp->val);
+                        stk.pop();
+                    }
+                    else
+                    {
+                        root=tmp->right;
+                    }
                 }
-            }	
+            }
+            return result;
         }
 
         vector<int> preorderTraversal(TreeNode *node)

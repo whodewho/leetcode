@@ -3,6 +3,9 @@
     We use hash map. everytime a new integer come to us, we compare it with its neighbor in the hash map. 
     then we update the max length. we always use the max sub length.
  */
+
+//O(log(N)*N)
+    
 class Solution {
     public:
         int longestConsecutive(vector<int> &num) 

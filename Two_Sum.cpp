@@ -1,3 +1,7 @@
+//O(N^2)
+
+//O(N*log(N))
+
 class Solution {
     public:
         vector<int> twoSum(vector<int> &numbers, int target) {
@@ -32,10 +36,6 @@ class Solution {
 
         //second try
 
-        bool compare(pair<int, int> comp1, pair<int, int> comp2) {
-            return comp1.first < comp2.first;
-        }
-
         struct myclass {
             bool operator()(pair<int, int> comp1, pair<int, int> comp2) {
                 return comp1.first < comp2.first;
@@ -50,7 +50,7 @@ class Solution {
             for (size_t i = 0; i != numbers.size(); i++) {
                 numbersWithIndex.push_back(make_pair(numbers[i], i + 1));
             }
-            std::sort(numbersWithIndex.begin(), numbersWithIndex.end(), compare);
+            std::sort(numbersWithIndex.begin(), numbersWithIndex.end(), myobject);
             size_t i = 0, j = numbers.size() - 1;
             while (i <= j) {
                 int tmpSum = numbersWithIndex[i].first + numbersWithIndex[j].first;

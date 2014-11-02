@@ -1,8 +1,6 @@
-/*
-    anson's code
-    ambugrious question, return vector<vector<string> > is more appropiat
-    check the res, you will see
-   */
+//O(N*log(N))
+//O(N)
+
 class Solution {
     public:
         vector<string> anagrams(vector<string> &strs) {

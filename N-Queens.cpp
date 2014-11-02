@@ -1,5 +1,5 @@
 /*
-   checked anson's, mine is cool
+    O(pow(8, 8))
  */
 class Solution {
     public:

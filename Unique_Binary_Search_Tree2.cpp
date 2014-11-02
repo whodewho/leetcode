@@ -14,6 +14,11 @@
     the second is mine. 
     all in all, the idea are same.
    */
+    
+//O(2^N) F(N)=F(0)+F(N-1) + F(1)+F(N-2)... F(N-1)+F(0)
+
+//O(N^2)
+    
 class Solution {
     public:
 

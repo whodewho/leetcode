@@ -13,6 +13,7 @@
     the second node was the last bad node, compared with the first node.
     that's all....
    */
+//O(N)
 class Solution {
     public:
         void recoverTree(TreeNode *root) {

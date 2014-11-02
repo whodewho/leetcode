@@ -12,36 +12,11 @@
  *     Interval(int s, int e) : start(s), end(e) {}
  * };
  */
+ 
+ //O(N)
+
 class Solution {
     public:
-
-        vector<Interval> insert(vector<Interval> &intervals, Interval newInterval) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            vector<Interval> res;
-            int i = 0;
-            while (i < intervals.size() && newInterval.start > intervals[i].end) {
-
-                res.push_back(intervals[i]);
-                i++;
-            }
-            int j = i;
-            while (j < intervals.size() && newInterval.end >= intervals[j].start)
-                j++;
-            j--;
-            if (j == i - 1)
-                res.push_back(newInterval);
-            else {
-                Interval tmp;
-                tmp.start = min(intervals[i].start, newInterval.start);
-                tmp.end = max(intervals[j].end, newInterval.end);
-                res.push_back(tmp);
-            }
-            for (int k = j + 1; k < intervals.size(); k++)
-                res.push_back(intervals[k]);
-
-            return res;
-        }
 
         vector<Interval> insert(vector<Interval> &intervals, Interval newInterval) {
             vector<Interval> result;

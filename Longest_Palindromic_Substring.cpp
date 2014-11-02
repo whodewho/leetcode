@@ -1,3 +1,5 @@
+//O(N)
+
 class Solution {
     public:
         string preProcess(string s) {

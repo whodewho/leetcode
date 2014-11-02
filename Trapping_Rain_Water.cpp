@@ -1,6 +1,6 @@
 /*
-    from anson, need some rest
-    think vertically, not horizonly
+O(N)
+O(N)
    */
 class Solution {
     public:

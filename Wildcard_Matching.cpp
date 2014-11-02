@@ -1,185 +1,80 @@
 /*
-   the first, time limit exceed, the second, same as the first
-   the third, anson's code, good, but, the code is hard to read
-   code is wirtten to read, sometimes, we run it
-   I will never read code 2 again, that's why
-   good code are beautiful code, always
-   the last one, from http://discuss.leetcode.com/questions/222/wildcard-matching
-   perfect!
+   from http://discuss.leetcode.com/questions/222/wildcard-matching
    what's the difference with regression_match below?
-   here isMatch("aab","c*a*b") false
-   below true, the "*" is different
+   here isMatch("aab","c*a*b") true
+   below false, the "*" is different
+
+   http://blog.csdn.net/linhuanmars/article/details/21198049
  */
+
+//O(M*N)
+
 class Solution {
     public:
-        bool isMatch(const char* s, const char* p) {
-            int i = 0, j = 0;
-            while (s[i] != '\0' && p[j] != '\0') {
-                if (s[i] == p[j] || p[j] == '?') {
-                    i++;
-                    j++;
-                } else if (p[j] == '*') {
-                    return isMatch(s + i + 1, p + j + 1) || isMatch(s + i + 1, p + j)
-                        || isMatch(s + i, p + j + 1);
-                } else {
-                    break;
-                }
-            }
-            if (s[i] == '\0') {
-                while (p[j] == '*') {
-                    j++;
-                }
-                if (p[j] == '\0') {
-                    return true;
-                }
-            }
-            return false;
+
+      bool isMatch(const char *s, const char *p)
+      {
+        int m=strlen(s);
+        int n=strlen(p);
+        vector<bool> dp(m+1);
+        dp[0]=true;
+        for(int j=0;j<n;j++)
+        {
+          if(p[j]!='*')
+          {
+            for(int i=m-1;i>=0;i--)
+              dp[i+1]=dp[i]&&(p[j]=='?'||s[i]==p[j]);
+              //dp[i]以为这dp[j-1][i]匹配成功了
+          }
+          else
+          {
+            int i=0;
+            while(i<=m&&!dp[i])i++;
+            for(;i<=m;i++)
+              dp[i]=true;
+          }
+          dp[0]=dp[0]&&p[j]=='*';
         }
+        return dp[m];
+      }
 
-        bool worker(const char* s, int i1, int j1, const char* p, int i2, int j2) {
-            if (i1 > j1 && i2 > j2)
-                return true;
+      
+      bool isMatch(const char *s, const char *p) {
+          // Start typing your C/C++ solution below
+          // DO NOT write int main() function
+          if(!s && !p) return true;
 
-            int t1 = -1, t2 = -1;
-            for (int k = i2; k <= j2; k++) {
-                if (p[k] == '*' || p[k] == '?') {
-                    if (t1 == -1)
-                        continue;
-                    else
-                        break;
-                } else {
-                    if (t1 == -1)
-                        t1 = k;
-                    t2 = k;
-                }
-            }
+          const char *star_p=NULL,*star_s=NULL;
 
-            if (t1 == -1) {
-                int c = 0;
-                bool sign = false;
-                for (int k = i2; k <= j2; k++) {
-                    if (p[k] == '?')
-                        c++;
-                    else if (p[k] == '*')
-                        sign = true;
-                }
-                if (c == j1 - i1 + 1)
-                    return true;
-                else if (c < j1 - i1 + 1)
-                    return sign;
-                else
-                    return false;
-            }
+          while(*s)
+          {
+              if(*p == '?' || *p == *s)
+              {
+                  ++p;
+                  ++s;
+              }
+              else if(*p == '*')
+              {
+                  //skip all continuous '*'
+                  while(*p == '*') ++p;
+                  if(!*p) return true; //if end with '*', its match.
 
-            for (int k = i1; k <= j1; k++) {
-                if (s[k] == p[t1]) {
-                    int h = 0;
-                    while (h < t2 - t1 + 1 && s[k + h] == p[t1 + h]) {
-                        h++;
-                    }
-                    if (h == t2 - t1 + 1) {
-                        /*
-                           for (int b = i1; b <= k - 1; b++)
-                           cout << s[b];
-                           cout << " ";
-                           for (int b = 0; b < h; b++)
-                           cout << s[k + b];
-                           cout << " ";
-                           for (int b = k + h; b <= j1; b++)
-                           cout << s[b];
-                           cout << endl;
+                  star_p = p; //store '*' pos for string and pattern
+                  star_s = s;
+              }
+              else if((!*p || *p != *s)  && star_p)
+              {
+                  s = ++star_s; //skip non-match char of string, regard it matched in '*'
+                  p = star_p; //pattern backtrace to later char of '*'
+              }
+              else return false;
+          }
 
-                           for (int b = i2; b <= t1 - 1; b++)
-                           cout << p[b];
-                           cout << " ";
-                           for (int b = t1; b <= t2; b++)
-                           cout << p[b];
-                           cout << " ";
-                           for (int b = t2 + 1; b <= j2; b++)
-                           cout << p[b];
-                           cout << endl;
-                           cout << endl;
-                         */
-                        if (worker(s, i1, k - 1, p, i2, t1 - 1)
-                                && worker(s, k + h, j1, p, t2 + 1, j2)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
+          //check if later part of p are all '*'
+          while(*p)
+              if(*p++ != '*')
+                  return false;
 
-        bool isMatch1(const char* s, const char* p) {
-            int m = strlen(s) - 1;
-            int n = strlen(p) - 1;
-            return worker(s, 0, m, p, 0, n);
-        }
-
-        bool isMatch2(const char* s, const char* p) {
-            const char *ps, *pp;
-            bool star = false;
-loopStart: for (ps = s, pp = p; *ps; ++ps, ++pp) {
-               switch (*pp) {
-                   case '?':
-                       break;
-                   case '*':
-                       star = true;
-                       s = ps, p = pp + 1;
-                       if (!*p)
-                           return true;
-                       goto loopStart;
-                   default:
-                       if (*ps != *pp)
-                           goto starCheck;
-                       break;
-               }
-           }
-           while (*pp == '*')
-               ++pp;
-           return (!*pp);
-starCheck: if (!star)
-               return false;
-           s++;
-           goto loopStart;
-           return false;
-        }
-
-        bool isMatch(const char *s, const char *p) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            if(!s && !p) return true;
-
-            const char *star_p=NULL,*star_s=NULL;
-
-            while(*s)
-            {
-                if(*p == '?' || *p == *s)
-                {
-                    ++p,++s;
-                }else if(*p == '*')
-                {
-                    //skip all continuous '*'
-                    while(*p == '*') ++p;
-
-                    if(!*p) return true; //if end with '*', its match.
-
-                    star_p = p; //store '*' pos for string and pattern
-                    star_s = s;
-                }else if((!*p || *p != *s)  && star_p)
-                {
-                    s = ++star_s; //skip non-match char of string, regard it matched in '*'
-                    p = star_p; //pattern backtrace to later char of '*'
-                }else
-                    return false;
-            }
-
-            //check if later part of p are all '*'
-            while(*p)
-                if(*p++ != '*')
-                    return false;
-
-            return true;
-        }
-
+          return true;
+      }
 }

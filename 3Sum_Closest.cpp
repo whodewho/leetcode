@@ -1,3 +1,6 @@
+//O(n*n)
+//O(1)
+
 class Solution {
     public:
         int threeSumClosest(vector<int> &num, int target) {

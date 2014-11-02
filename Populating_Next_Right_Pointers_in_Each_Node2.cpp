@@ -7,10 +7,6 @@
  * };
  */
 /*
-   a slight change of question one will work on this.
-   the second two does't work. shit how did I upload them here
-   check anson's,his is right
-
    can be done with O(1), at youdao, save it for you
  */
 class Solution {
@@ -46,54 +42,4 @@ class Solution {
                 }
             }
         }
-
-        /*
-        //bfs with less space 
-        void connect(TreeLinkNode *root) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            if(root==NULL)return;
-            TreeLinkNode *node=root;
-            while(node)
-            {
-                if(node->left)
-                {
-                    if(node->right)node->left->next=node->right;
-                    else if(node->next&&node->next->left)node->left->next=node->next->left;
-                    else if(node->next&&node->next->right)node->left->next=node->next->right;
-                }
-                if(node->right)
-                {
-                    if(node->next&&node->next->left)node->right->next=node->next->left;
-                    else if(node->next&&node->next->right)node->right->next=node->next->right;
-                }
-                node=node->next;
-            }
-            if(root->left)connect(root->left);
-            else if(root->right)connect(root->right);
-        }
-
-        //dfs new
-        void connect(TreeLinkNode *root) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            if(root==NULL)return;
-            TreeLinkNode *node=root;
-
-            if(node->left)
-            {
-                if(node->right)node->left->next=node->right;
-                else if(node->next&&node->next->left)node->left->next=node->next->left;
-                else if(node->next&&node->next->right)node->left->next=node->next->right;
-            }
-            if(node->right)
-            {
-                if(node->next&&node->next->left)node->right->next=node->next->left;
-                else if(node->next&&node->next->right)node->right->next=node->next->right;
-            }
-
-            if(root->left)connect(root->left);
-            if(root->right)connect(root->right);
-        }
-        */
 };

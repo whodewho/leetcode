@@ -1,3 +1,5 @@
+//O(N)
+
 class Solution {
     public:
         int removeDuplicates(int A[], int n) {

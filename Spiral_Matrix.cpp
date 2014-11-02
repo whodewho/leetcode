@@ -1,8 +1,5 @@
 /*
-   now, recursion is a good idea
-   if i am allowed to broke the array, i may save m*n space
-   yes, we solve this questions in different order, inertia
-   both of us
+O(M*N)
  */
 class Solution {
     public:

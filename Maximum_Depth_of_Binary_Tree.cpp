@@ -8,7 +8,7 @@
  * };
  */
 /*
-   dfs is clear, bfs costs more code. however, you cannot avoid O(n).
+O(n).
  */
 class Solution {
     public:

@@ -7,15 +7,10 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-/*
-   met before. several times.
-   the first solution is mine, the rest are anson's.
-   anson's first solution is not smart, too many times down to bottom. ok, I remember I saw this on The Beauty of Programming...
-   his second solution is almost same as mine, he use two queue, i don't see swap a good choice. by the way, I learned my solution from him too.
-   his third solution, ok, is the best one. he keeps the number of nodes of pre level and cur level. ok, back to solution two... 
-   don't use tmp anymore.....
-   leetcode is hot now. server always busy.
- */
+
+//O(N)
+//O(N)
+   
 class Solution {
     public:
         vector<vector<int> > levelOrder(TreeNode *root) {
@@ -51,36 +46,6 @@ class Solution {
                 res.push_back(tmp);
             }
             return res;
-        }
-
-        vector<vector<int> > levelOrder(TreeNode *root) {
-            return levelOrder1(root);
-        }
-
-        vector<vector<int> > levelOrder1(TreeNode *root) {
-            vector<vector<int> > res;
-            vector<int> row;
-            for (int level = 1; level <= maxHeight(root); level++) {
-                row.clear();
-                levelOrderHelper1(root, level, row);
-                res.push_back(row);
-            }
-            return res;
-        }
-
-        int maxHeight(TreeNode *node) {
-            if(NULL == node) return 0;
-            return 1 + max(maxHeight(node->left), maxHeight(node->right));
-        };
-
-        void levelOrderHelper1(TreeNode *node, int level, vector<int> &row) {
-            if (level == 0 || node == NULL) return;
-            if (level == 1) {
-                row.push_back(node->val);
-                return;
-            }
-            levelOrderHelper1(node->left, level-1, row);
-            levelOrderHelper1(node->right, level-1, row);
         }
 
         vector<vector<int> > levelOrder2(TreeNode *root) {

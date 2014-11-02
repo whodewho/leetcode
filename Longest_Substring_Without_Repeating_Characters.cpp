@@ -1,3 +1,5 @@
+//O(N*N)
+
 class Solution {
     public:
         int lengthOfLongestSubstring(string s) {
@@ -8,10 +10,11 @@ class Solution {
             for(int i=1;i!=s.size();i++)
             {
                 int j=i-1;
-                for(;j>=0&&s[j]!=s[i]&&i-last<=j;j--);
+                while(j>=0&&s[j]!=s[i]&&i-last<=j)j--;
                 last=i-j;
-                result=max(i-j,result);
+                result=max(last,result);
             }
             return result;  
         }
+
 };

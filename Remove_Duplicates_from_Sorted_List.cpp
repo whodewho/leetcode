@@ -1,7 +1,5 @@
 /*
-   better
-
-   second try, as better
+O(N)
  */
 class Solution {
     public:

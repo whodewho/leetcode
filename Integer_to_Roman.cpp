@@ -1,5 +1,7 @@
 /*
-    the second is anson's, cool
+O(N) bits
+
+O(N)
    */
 class Solution {
     public:

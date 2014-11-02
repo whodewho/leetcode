@@ -1,3 +1,4 @@
+//O(N) bits
 class Solution {
     public:
         bool isPalindrome(int x) {

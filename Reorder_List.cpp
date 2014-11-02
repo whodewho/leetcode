@@ -6,6 +6,9 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+ //O(N)
+
 class Solution {
     public:
         void reorderList(ListNode *head) {

@@ -1,5 +1,6 @@
 /*
-    dfs... factually, no need for path referrence. pass value will work too
+    dfs
+    O(pow(k, n))
    */
 class Solution {
     public:

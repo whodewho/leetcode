@@ -3,10 +3,12 @@
    2.if keep the next nodes, we go from start to end, we might do a lot useless work. otherwise, we keep the previous node, 
    and we go from end to start, we always reach the start node.
    3.how to keep the previous node without insert any same layer links? the cur and pre parameter is awsome! thanks to niaokedaoren!
-   keep in mind, queue can't split two layers. iterator? choose vector! search? choose set!
-
-   dfs time limit exceed
+   keep in mind, queue can't split two layers. iterator? 
+   choose vector! search? choose set!
  */
+
+//O(N)
+
 class Solution {
     public:
         vector<vector<string>> findLadders(string start, string end, unordered_set<string> &dict) {
@@ -84,83 +86,4 @@ class Solution {
         }
 
         vector<vector<string>> paths;
-};
-
-
-class Solution {
-    public:
-
-        void worker(int start, int end, vector<string>& path, vector<bool>& visited,
-                vector<string>& dictVec, vector<vector<int> >&graph,
-                vector<vector<string> > &result) {
-            if (start == end) {
-                if (result.empty())
-                    result.push_back(path);
-                else {
-                    if (path.size() <= result[0].size()) {
-                        if (path.size() < result[0].size()) {
-                            result.clear();
-                        }
-                        result.push_back(path);
-                    }
-                }
-                return;
-            }
-
-            vector<int> next;
-            for (int i = 0; i < dictVec.size(); i++) {
-                if (!visited[i]) {
-                    if (graph[start][i] == 1) {
-                        next.push_back(i);
-                    }
-                }
-            }
-
-            for (int i = 0; i < next.size(); i++) {
-                visited[next[i]] = true;
-                path.push_back(dictVec[next[i]]);
-                worker(next[i], end, path, visited, dictVec, graph, result);
-                path.pop_back();
-                visited[next[i]] = false;
-            }
-        }
-
-        vector<vector<string> > findLadders(string start, string end,
-                unordered_set<string> &dict) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            vector<vector<string> > result;
-            if (dict.empty() || start == end)
-                return result;
-
-            vector<string> dictVec;
-            for (unordered_set<string>::iterator it = dict.begin();
-                    it != dict.end(); it++)
-                dictVec.push_back(*it);
-            if (dict.find(start) == dict.end())
-                dictVec.push_back(start);
-            if (dict.find(end) == dict.end())
-                dictVec.push_back(end);
-
-            int m = dictVec.size();
-            vector<vector<int> > graph(m, vector<int>(m, 0));
-            for (int i = 0; i < m; i++)
-                for (int j = 0; j < i; j++) {
-                    int distance = 0;
-                    for (string::size_type k = 0; k < dictVec[i].size(); k++) {
-                        if (dictVec[i][k] != dictVec[j][k])
-                            distance++;
-                    }
-                    graph[i][j] = distance;
-                    graph[j][i] = distance;
-                }
-
-            vector<string> path;
-            path.push_back(start);
-            vector<bool> visited(m, false);
-            visited[m - 2] = true;
-
-            worker(m - 2, m - 1, path, visited, dictVec, graph, result);
-            return result;
-        }
 };

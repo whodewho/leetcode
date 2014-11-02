@@ -12,6 +12,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+ //O(N)
 class Solution {
     public:
         int sumNumbers(TreeNode *root) {
@@ -21,34 +22,11 @@ class Solution {
             int sum=0;
             if(root==NULL)
                 return 0;
-            //sumNumbersWorker1(root,path,sum);
-            sumNumbersWorker2(root,0,sum);
+            sumNumbersWorker(root,0,sum);
             return sum;
         }
 
-        void sumNumbersWorker1(TreeNode *root,vector<int>& path,int &sum)
-        {
-            path.push_back(root->val);
-            if(root->left==NULL&&root->right==NULL)
-            {
-                sum+=calculate(path);
-            }
-            if(root->left)sumNumbersWorker1(root->left,path,sum); 
-            if(root->right)sumNumbersWorker1(root->right,path,sum);
-            path.pop_back();
-        }
-
-        int calculate(vector<int> &path)
-        {
-            int sum=0;
-            for(vector<int>::iterator it=path.begin();it!=path.end();it++)
-            {
-                sum=sum*10+*it;
-            }
-            return sum;
-        }
-
-        void sumNumbersWorker2(TreeNode *root, int now, int &sum)
+        void sumNumbersWorker(TreeNode *root, int now, int &sum)
         {
             now+=root->val;
             if(root->left==NULL&&root->right==NULL)

@@ -1,9 +1,5 @@
 /*
-   almost same with anson's 
-   mine is better, because it passed the first time I submitted,
-   and that's mine
-
-   second try, as better 
+O(M*N*4^K)
  */
 class Solution {
     public:
@@ -47,43 +43,5 @@ class Solution {
                 }
             }
             return false; 
-        }
-
-
-        bool worker(int i,int j,int m,int n,string word,vector<vector<bool> >& p,vector<vector<char> >&board)
-        {
-            if(word.empty())return true;
-
-            if(p[i][j]==false&&board[i][j]==word[0])
-            {
-                if(word.size()==1)return true;
-
-                p[i][j]=true;
-                word.erase(word.begin());
-                if(i+1<m && worker(i+1,j,m,n,word,p,board)) return true;
-                if(i-1>=0 && worker(i-1,j,m,n,word,p,board)) return true;
-                if(j+1<n && worker(i,j+1,m,n,word,p,board)) return true;
-                if(j-1>=0 && worker(i,j-1,m,n,word,p,board)) return true;
-                p[i][j]=false;
-            }
-            return false;
-        }
-
-        bool exist(vector<vector<char> > &board, string word) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            int m=board.size();
-            if(!m)return false;
-            int n=board[0].size();
-            if(!n)return false;
-
-            vector<vector<bool> > p(m,vector<bool>(n,false));
-            for(int i=0;i<m;i++)
-                for(int j=0;j<n;j++)
-                {
-                    if(worker(i,j,m,n,word,p,board))
-                        return true;
-                }
-            return false;
         }
 };

@@ -1,6 +1,6 @@
 /*
-    use queue, no doubt. how to get the nest start faster? the word is short, and we use set. Iterate through the word will be faster
- */
+O(N*K)
+*/
 class Solution {
     public:
         int ladderLength(string start, string end, unordered_set<string> &dict) {

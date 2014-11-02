@@ -1,6 +1,8 @@
 /*
-   the second, kmp
- */
+O(M*N)
+
+O(M+N)
+*/
 class Solution {
     public:
         char *strStr(char *haystack, char *needle) {
@@ -17,13 +19,12 @@ class Solution {
                         i++;
                     }
                     if(*(needle+i)=='\0')return haystack;
-                    if (*(haystack + i) == '\0')return NULL;
+                    if(*(haystack + i) == '\0')return NULL;
                 }
                 haystack++;
             }
             return NULL;
         }
-
 
         void compute_prefix(char* p, int m, vector<int>& pr) {
             pr[0]=-1;

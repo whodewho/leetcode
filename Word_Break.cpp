@@ -1,5 +1,5 @@
 /*
-    the second exceed time limit, recursion of course
+    O(M^2)
     the first, dp, p[i][j]=true if p[i][k-1]==ture&&p[k][j]==ture,k>=i,k<=j
    */
 class Solution {
@@ -31,26 +31,5 @@ class Solution {
             }
 
             return p[0][m-1];
-        }
-
-        bool wordBreak(string s, unordered_set<string> &dict) {
-            // Note: The Solution object is instantiated only once and is reused by each test case.
-            if(s.size()==0)return true;
-
-            for(int i=0;i<s.size();i++)
-            {
-                string first=s.substr(0,i+1);
-                if(dict.find(first)!=dict.end())
-                {
-                    dict.erase(first);
-                    if(wordBreak(s.substr(i+1,s.size()-i-1),dict))
-                    {
-                        return true;
-                    }
-                    dict.insert(first);
-                }
-            }
-
-            return false;
         }
 };

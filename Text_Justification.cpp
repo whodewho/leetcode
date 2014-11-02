@@ -1,6 +1,6 @@
 /*
-    where may i use this algo?
-   */
+O(N)
+*/
 class Solution {
     public:
         vector<string> fullJustify(vector<string> &words, int L) {

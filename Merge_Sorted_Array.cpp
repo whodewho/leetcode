@@ -1,5 +1,5 @@
 /*
-    start from the end. i save one line of code than anson's.
+    O(M+N)
    */
 class Solution {
     public:

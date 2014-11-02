@@ -7,12 +7,10 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-/*
-   use stack to store the level nodes is also a good choice.
-   anson, i guess you like. although, a reverse at last can also sovle the problem.
-   stack is not moe efficient than reverse, in my opinion.
-   the second one is anson's solution, twice the space it costs.
- */
+
+//O(N)
+//O(N)
+
 class Solution {
     public:
         vector<vector<int> > levelOrderBottom(TreeNode *root) {

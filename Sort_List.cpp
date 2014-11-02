@@ -6,7 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-
+//quicksort, O(N*N)
 class Solution {
 	public:
 		ListNode *sortList(ListNode *head) {

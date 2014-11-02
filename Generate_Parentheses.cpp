@@ -1,3 +1,6 @@
+/*
+O(N*N*N), F(N)=F(N-1)+O(N*N)
+*/
 class Solution {
     public:
 

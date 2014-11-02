@@ -7,10 +7,7 @@
  * };
  */
 /*
-   checked anson's, delete, yeah, impressive
-   but my is clearer.
-
-   look at my second try, no as good as first one
+O(N)
  */
 class Solution {
     public:
@@ -48,53 +45,5 @@ class Solution {
                 }
             }
             return newHead;
-        }
-
-
-        ListNode *deleteDuplicates(ListNode *head) {
-            // Note: The Solution object is instantiated only once and is reused by each test case.
-            if(!head)return head;
-
-            ListNode* runner=head;
-            ListNode* newHead=NULL;
-            ListNode* tail=NULL;
-            ListNode* pre=NULL;
-
-            while(runner)
-            {
-                if(pre==NULL)
-                {
-                    pre=runner;
-                    runner=runner->next;
-                }
-                else
-                {
-                    while(runner && pre->val==runner->val)
-                    {
-                        runner=runner->next;
-                    }
-
-                    if(pre->next==runner)
-                    {
-                        if(newHead==NULL)
-                        {
-                            newHead=pre;
-                        }
-                        else
-                        {
-                            tail->next=pre;
-                        }
-                        tail=pre;
-                    }
-                    pre=NULL;
-                }
-            }
-
-            if(newHead)
-            {
-                tail->next=pre;
-                return newHead;
-            }
-            else return pre;
         }
 };

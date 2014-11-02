@@ -6,6 +6,9 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ //O(max(M,N))
+ //O(max(M,N))
+ 
 class Solution {
     public:
         ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {

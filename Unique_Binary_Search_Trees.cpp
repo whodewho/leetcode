@@ -6,6 +6,8 @@
    h(n)=((4*n-2)/(n+1))*h(n-1);
    h(n)=C(2n,n)/(n+1) (n=1,2,3,...)
  */
+   //O(N^2)
+   
 class Solution {
     public:
         int numTrees(int n) {

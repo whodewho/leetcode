@@ -7,10 +7,10 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-/*
-    mine is better.I just love referrence.
-    if left subtree is not balanced, just return, froget right subtree.
-   */
+
+//O(N)
+//O(1)
+
 class Solution {
     public:
         bool isBalanced(TreeNode *root) {

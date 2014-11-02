@@ -1,7 +1,5 @@
 /*
-   check anson's, mine is more than better.
-   log, yeah
-   nope, his is good too, the second one is his
+log(N)
  */
 class Solution {
     public:
@@ -19,7 +17,7 @@ class Solution {
             if(x < 2) return x;
             long long l = 0;
             long long u = 1 + (x / 2);
-            while(l +1 < u) {
+            while(l + 1 < u) {
                 long long m = l + (u - l) / 2;
                 long long p = m * m;
                 if(p > x)

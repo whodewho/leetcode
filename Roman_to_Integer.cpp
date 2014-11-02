@@ -1,5 +1,5 @@
 /*
-    the second is anson's
+    O(N)
    */
 class Solution {
     public:

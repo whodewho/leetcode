@@ -1,7 +1,9 @@
 /*
-    mine is better than anson's, in my opinion.
-    i save 256-26 chars.
-    the first part of one string must kill the first or second part of the other string
+   F(N)=(F(1)+F(N-1) + F(2)+F(N-2) + ... + F(N-1)+F(1))
+       =2*(F(1)+F(2) ... + F(N-1))
+       =O(2^N)
+
+    O(N^4)
    */
 class Solution {
     public:
@@ -46,5 +48,21 @@ class Solution {
                 if(counts[i])return false;
             }
             return true;
+        }
+
+        bool isScramble(string s1, string s2) {
+            int len=s1.size();
+            bool dp[100][100][100]={false};
+            for (int i=len-1;i>=0;i--)
+                for (int j=len-1;j>=0;j--) {
+                    dp[i][j][1]=(s1[i]==s2[j]);
+                    for (int l=2;i+l<=len && j+l<=len;l++) {
+                        for (int n=1;n<l;n++) {
+                            dp[i][j][l]|=dp[i][j][n]&&dp[i+n][j+n][l-n];
+                            dp[i][j][l]|=dp[i][j+l-n][n]&&dp[i+n][j][l-n];
+                        }
+                    }
+                }
+            return dp[0][0][len];
         }
 };

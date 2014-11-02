@@ -6,6 +6,7 @@
     dp2[i+1] is initialized with dp2[i]+1, apparaently.
     for every k in (0...i), if substr(j,i+1) is palindrome, we can get an alternative cuting method, its dp2[j]+1,substr(j,i+1)
    */
+//O(N*N)
 class Solution {
     public:
         int minCut(string s) {
@@ -39,48 +40,4 @@ class Solution {
             }
             return dp2[N];
         }
-/*
-        bool isPalindrome(string s)
-        {
-            int i=0,j=s.size()-1;
-            while(i<j)
-            {
-                if(s[i++]!=s[j--])
-                    return false;
-            }
-            return true;
-        }
-
-        int minCut(string s) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            if(s.size()<=1||isPalindrome(s))
-            {
-                return 0;
-            }
-
-            int min=s.size()-1;
-            for(int i=1;i<s.size();i++)
-            {            
-                int minHeadCut=0;
-                string head=s.substr(0,i);
-                minHeadCut=minCut(head);
-
-                if(minHeadCut+1>=min)
-                {
-                    continue;
-                }
-
-                int minTailCut=0;
-                string tail=s.substr(i,s.size()-i);
-                minTailCut=minCut(tail);
-
-                if(minHeadCut+1+minTailCut<min)
-                {
-                    min=minHeadCut+1+minTailCut;
-                }
-            }
-            return min;
-        }
-*/
 };

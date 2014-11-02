@@ -1,3 +1,6 @@
+//O(N*M*M)
+//O(1)
+
 class Solution {
     public:
 

@@ -1,6 +1,6 @@
 /*
-   is the reserve function improve the solution? I tried, not sure.
-   */
+O(pow(2,N))
+*/
 class Solution {
     public:
         vector<vector<int> > generate(int numRows) {

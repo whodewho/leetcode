@@ -1,7 +1,4 @@
 /*
-   does not make too much sense
-   haha, anson is learning
-
    second try, iterative way, that's interesting, exceed time limit
  */
 class Solution {

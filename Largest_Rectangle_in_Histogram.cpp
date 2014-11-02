@@ -1,8 +1,5 @@
 /*
-    tell me, anson, how dare you use "int y[n]" just like this.
-    it's not initialized, no memory malloced for it.
-    I used to think the "fill" that works out, no I don't
-    and, the stack, good job
+    the stack, good job
     don't worry, the lowest bar will take care of the final result
    */
 class Solution {

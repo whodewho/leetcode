@@ -13,6 +13,9 @@
    follow instinction
    I can do it!
    */
+
+//O(N)
+
 class Solution {
 	public:
 		ListNode *reverseKGroup(ListNode *head, int k) {
@@ -101,71 +104,6 @@ class Solution {
 				if(tail)tail->next=newHead;
 				tail=newTail;
 				tail->next=head;
-			}
-
-			return result;
-		}
-
-		ListNode *reverseKGroup(ListNode *head, int k) {
-			if(k==1)return head;
-			if(!head)return head;
-			ListNode* result=NULL;
-			ListNode* tail=NULL;
-
-			while(true)
-			{
-				int i=0;
-				ListNode* runner=head;
-				while(runner)
-				{
-					i++;
-					runner=runner->next;
-				}
-
-				if(i<k)
-				{
-					if(!result)return head;
-					else
-					{
-						tail->next=head;
-						return result;
-					}
-				}
-				else
-				{
-					runner=head;
-					ListNode* tmpHead=NULL;
-					ListNode* tmpTail=NULL;
-					for(int i=0;i<k;i++)
-					{
-						if(!tmpHead)
-						{
-							tmpHead=head;
-							tmpTail=head;
-							runner=runner->next;
-						}
-						else
-						{
-							ListNode* tmp=runner->next;
-							runner->next=tmpHead;
-							tmpHead=runner;
-							runner=tmp;
-						}
-					}
-
-					head=runner;
-					tmpTail->next=NULL;
-					if(!result)
-					{
-						result=tmpHead;
-						tail=tmpTail;
-					}
-					else
-					{
-						tail->next=tmpHead;
-						tail=tmpTail;
-					}
-				}
 			}
 
 			return result;

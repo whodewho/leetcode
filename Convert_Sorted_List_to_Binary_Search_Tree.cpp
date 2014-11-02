@@ -16,49 +16,11 @@
  * };
  */
 /*
-    the second one the anson's solution. his is better.
-    his 'while' is better. 
-    he used three arguments, saving one iteration each recursion.
-    mine is O(n*n), dame it.
-    but, his is just a little faster than mine.
-    
-    here I am again, I don't get it, can anson's build a balanced, look at the head pointer, need check later
-    here I am again, be careful, the head argument is a referrence
+O(N)
    */
 class Solution {
     public:
-        TreeNode *sortedListToBST(ListNode *head) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            if(head==NULL)return NULL;
-            int length=0;
-            ListNode* tmp=head;
-            while(tmp)
-            {
-                tmp=tmp->next;
-                length++;
-            }
-            return worker(head,length);
-        }
 
-        TreeNode *worker(ListNode *head,int length){
-            if(length==1)
-            {
-                return new TreeNode(head->val);
-            }
-            if(length<1)return NULL;
-            int i=1;
-            ListNode* mid=head;
-            while(i<ceil(length/2.0))
-            {
-                mid=mid->next;
-                i++;   
-            }
-            TreeNode *res=new TreeNode(mid->val);
-            res->left=worker(head,i-1);
-            res->right=worker(mid->next,length-i);
-            return res;
-        }
 
         TreeNode *sortedListToBST(ListNode *head) {
             if (head == NULL) return NULL;

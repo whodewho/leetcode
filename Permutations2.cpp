@@ -1,5 +1,5 @@
 /*
-    line 28, awsome! from anson. everytime, find the next larger one
+    O(N!)
    */
 class Solution {
     public:

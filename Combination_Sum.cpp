@@ -1,6 +1,6 @@
-/*
-    dfs, nothing special
-   */
+//F(k,x)=F(k+1, x)+F(k, x-x.k) 1<=k<=n, 1<=x<=m, O(N*M*M) 投资问题，不是线性的
+//O(1)
+
 class Solution {
     public:
         void worker(int i, int target, vector<int> &count, vector<vector<int> >&result,
@@ -23,6 +23,7 @@ class Solution {
             }
 
         }
+        
         vector<vector<int> > combinationSum(vector<int> &candidates, int target) {
             // Start typing your C/C++ solution below
             // DO NOT write int main() function

@@ -6,6 +6,8 @@
     00 01 11 10
     000 001 011 010 110 111 101 100
     the reverse...
+
+    O(N)
    */
 class Solution {
     public:

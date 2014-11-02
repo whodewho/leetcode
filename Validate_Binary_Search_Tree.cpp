@@ -9,36 +9,15 @@
  */
 
 /*
-   the first solution is mine, the rest three are anson's.
-   mine is about same with his first, light difference.
-   INT_MIN, INI_MAX, yes, than he applied floor and ceil. This is O(n).
-   I thought of this too, but I do not know this tow constants until now.
-   as his third solution, in-order wolk and check if it is no-decreasing.
-   smart.
+  O(N)
  */
 class Solution {
     public:
+        
         bool isValidBST(TreeNode *root) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            if(root==NULL)return true;
-
-            return validRight(root->right,root->val)
-                &&validLeft(root->left,root->val)
-                &&isValidBST(root->left)
-                &&isValidBST(root->right);
-        }
-
-        bool validRight(TreeNode* root,int father)
-        {
-            if(root==NULL)return true;
-            return root->val>father&&validRight(root->left,father)&&validRight(root->right,father);
-        }
-
-        bool validLeft(TreeNode *root,int father)
-        {
-            if(root==NULL)return true;
-            return root->val<father&&validLeft(root->left,father)&&validLeft(root->right,father);
+            // Note: The Solution object is instantiated only once and is reused by each test case.
+            TreeNode* preNode=NULL;
+            return inOrder(root,preNode);
         }
 
         //second try, almost same with anson's last one
@@ -51,34 +30,6 @@ class Solution {
             preNode=currNode;
             if(!inOrder(currNode->right,preNode))return false;
             return true;
-        }
-
-        bool isValidBST(TreeNode *root) {
-            // Note: The Solution object is instantiated only once and is reused by each test case.
-            TreeNode* preNode=NULL;
-            return inOrder(root,preNode);
-        }
-
-        // pre-order walk with looking up min and max
-        // takes O(n*log(n)) time
-        bool isValidBST1(TreeNode* node) {
-            if (node == NULL) return true;
-            if (maxVal(node->left) < node->val && node->val < minVal(node->right)) {
-                return isValidBST1(node->left) && isValidBST1(node->right);
-            }
-            return false;
-        }
-
-        int minVal(TreeNode* node) {
-            if (node == NULL) return INT_MAX;
-            while (node->left != NULL) node = node->left;
-            return node->val;
-        }
-
-        int maxVal(TreeNode* node) {
-            if (node == NULL) return INT_MIN;
-            while (node->right != NULL) node = node->right;
-            return node->val;
         }
 
         // pre-order walk with updating min and max

@@ -8,10 +8,8 @@
  * };
  */
 /*
-    yes, dfs will work. be careful about the initial input like(NULL,0)
-    that's why I wirte two if, not just like this
-    if(root==NULL)return sum==0?true:false;
-   */
+O(N)
+*/
 class Solution {
     public:
         bool hasPathSum(TreeNode *root, int sum) {

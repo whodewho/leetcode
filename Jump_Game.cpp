@@ -1,5 +1,5 @@
 /*
-    anson, clean and tidy
+O(N)
    */
 class Solution {
     public:

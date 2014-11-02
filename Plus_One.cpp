@@ -1,6 +1,5 @@
 /*
-    don't set i with type size_t 
-    i could be negative, it will go crazy
+    O(N)
    */
 class Solution {
     public:

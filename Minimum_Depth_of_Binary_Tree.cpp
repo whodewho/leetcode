@@ -8,7 +8,7 @@
  * };
  */
 /*
-    well, I insist that bfs is more efficient than dfs, anson.
+    O(N)
    */
 class Solution {
     public:

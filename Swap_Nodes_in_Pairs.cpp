@@ -6,6 +6,9 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+ //O(N)
+ 
 class Solution {
 	public:
 		ListNode *swapPairs(ListNode *head) {
@@ -44,42 +47,6 @@ class Solution {
 					}
 				}
 				head=head->next;
-			}
-			return result;
-		}
-
-		ListNode *swapPairs(ListNode *head) {
-			ListNode* result=NULL;
-			ListNode *runner=NULL;
-
-			while(head)
-			{
-				ListNode* first=head;
-				ListNode* second=head->next;
-				if(second==NULL)
-				{
-					if(runner)runner->next=head;
-					else result=head;
-					break;
-				}
-				ListNode* third=second->next;
-
-				if(result==NULL)
-				{
-					result=second;
-					second->next=first;
-					first->next=NULL;
-					runner=first;
-				}
-				else
-				{
-					runner->next=second;
-					second->next=first;
-					first->next=NULL;
-					runner=first;
-				}
-
-				head=third;
 			}
 			return result;
 		}

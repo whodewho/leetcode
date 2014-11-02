@@ -1,8 +1,5 @@
 /*
-   the second solution, force loop. however, I don't regard this as fool thing.
-   the first solution, yes, dfs. I checked, anson use this too. my pleasure.
-
-   the third one, second try
+  O(pow(4, 3))
  */
 class Solution {
     public:
@@ -38,95 +35,5 @@ class Solution {
                     }
                 }
             }
-        }
-
-        vector<string> restoreIpAddresses(string s) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            vector<string> res;
-
-            if(s.size()<4)return res;
-            for(int i=0;i<s.size()-3;i++)
-            {
-                string s1=s.substr(0,i+1);
-                int i1=atoi(s1.c_str());
-                if(s1[0]=='0'&&s1.size()==1||s1[0]>'0'&&i1<=255)
-                {
-                    for(int j=i+1;j<i+4&&j<s.size()-2;j++)
-                    {
-                        string s2=s.substr(i+1,j-i);
-                        int i2=atoi(s2.c_str());
-                        if(s2[0]=='0'&&s2.size()==1||s2[0]>'0'&&i2<=255)
-                        {
-                            for(int k=j+1;k<j+4&&k<s.size()-1;k++)
-                            {
-                                string s3=s.substr(j+1,k-j);
-                                int i3=atoi(s3.c_str());
-                                string s4=s.substr(k+1,s.size()-k-1);
-                                int i4=atoi(s4.c_str());
-                                if(
-                                        (s3[0]=='0'&&s3.size()==1||s3[0]>'0'&&i3<=255)
-                                        &&
-                                        (s4[0]=='0'&&s4.size()==1||s4[0]>'0'&&i4<=255)
-                                  )
-                                {
-                                    stringstream ss;
-                                    ss<<i1<<"."<<i2<<"."<<i3<<"."<<i4;
-                                    string tmp=ss.str();
-                                    if(find(res.begin(),res.end(),tmp)==res.end())
-                                    {
-                                        res.push_back(tmp);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return res;
-        }
-
-
-        void worker(int i,int k,string& s,string path,vector<string>& result)
-        {
-            if(k==4)
-            {
-                if(i==s.size())
-                    result.push_back(path);
-                return;
-            }
-
-            if(s[i]=='0')
-            {
-                if(k==0)
-                    worker(i+1,k+1,s,path+"0",result);
-                else
-                    worker(i+1,k+1,s,path+".0",result);
-                return;
-            }
-
-            for(int j=1;j<=3&&i+j+3-k<=s.size();j++)
-            {
-                stringstream str;
-                str<<s.substr(i,j);
-                int t=0;
-                str>>t;
-                if(t>=0&&t<=255)
-                {
-                    if(k==0)
-                        worker(i+j,k+1,s,path+s.substr(i,j),result);
-                    else
-                        worker(i+j,k+1,s,path+"."+s.substr(i,j),result);
-                }
-            }
-        }
-
-        vector<string> restoreIpAddresses(string s) {
-            // Note: The Solution object is instantiated only once and is reused by each test case.
-            vector<string> result;
-            if(s.empty())return result;
-
-            worker(0,0,s,"",result);
-            return result;
         }
 };

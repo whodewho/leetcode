@@ -7,6 +7,10 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+ //O(N)
+ //O(N)
+ 
 class Solution {
     public:
         vector<int> postorderTraversal(TreeNode *root) {

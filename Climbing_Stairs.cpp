@@ -1,6 +1,6 @@
-/*
-    fibonacci. checked anson's, almost same, mine is better
-   */
+//O(N)
+//O(1)
+
 class Solution {
     public:
         int climbStairs(int n) {

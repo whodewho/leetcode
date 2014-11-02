@@ -8,10 +8,7 @@
  * };
  */
 /*
-   the second solution, bfs, does not work. leetcode is mad today. i can't see the input of wrong answer.
-   need to fix the bug later. anson, you are lazy this time.
-
-   second solution fixed
+O(N)
  */
 class Solution {
     public:
@@ -55,9 +52,7 @@ class Solution {
                     while(i<j)
                     {
                         if (level[i] == NULL && level[j] != NULL||level[i] != NULL && level[j] == NULL)
-                        {
                             return false;
-                        }
                         if(!(level[i]==NULL&&level[j]==NULL)&&(level[i]->val != level[j]->val))
                             return false;
                         i++;

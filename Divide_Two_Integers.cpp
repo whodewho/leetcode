@@ -1,3 +1,6 @@
+/*
+
+*/
 class Solution {
     public:
         int divide(int dividend, int divisor) {
@@ -23,7 +26,6 @@ class Solution {
                 return sign * (dividend+result);
             if (dividend < divisor)
                 return sign*result;
-
 
             while (dividend >= divisor) {
                 int i = 1;

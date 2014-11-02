@@ -8,27 +8,10 @@
  * };
  */
 /*
-   can it be more succient? let me see anson's.
-   ok, his arguments is better.second is his solution.
-   mine is more c!
+O(N)
  */
 class Solution {
     public:
-        TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            return worker(preorder,0,preorder.size()-1,inorder,0,inorder.size()-1);
-        }
-
-        TreeNode *worker(vector<int> &preorder,int low1,int high1,vector<int> &inorder,int low2,int high2)
-        {
-            if(low1>high1)return NULL;
-            TreeNode *res=new TreeNode(preorder[low1]);
-            int midIndex=find(inorder.begin()+low2,inorder.begin()+high2,preorder[low1])-inorder.begin();
-            res->left=worker(preorder,low1+1,low1+midIndex-low2,inorder,low2,midIndex-1);
-            res->right=worker(preorder,low1+midIndex-low2+1,high1,inorder,midIndex+1,high2);
-            return res;
-        }
 
         TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
             return buildTreeHelper(preorder.begin(), inorder.begin(), preorder.size());

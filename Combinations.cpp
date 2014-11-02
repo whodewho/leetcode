@@ -1,6 +1,7 @@
-/*
-    almost same with anson's
-   */
+
+//O(C(N,K)+C(N,K-1)+C(N,K-2)+C(N,1))=O(pow(N,K)) < O(pow(2,N))
+//O(1)
+
 class Solution {
     public:
         vector<vector<int> > combine(int n, int k) {
