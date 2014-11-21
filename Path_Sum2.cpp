@@ -35,7 +35,6 @@ class Solution {
             }
             path.push_back(root->val);
             if(root->left)worker(root->left,sum-root->val,res,path);
-            if(root->right)worker(root->right,sum-root->val,res,path);
-            path.pop_back();        
+            if(root->right)worker(root->right,sum-root->val,res,path);       
         }
 };
