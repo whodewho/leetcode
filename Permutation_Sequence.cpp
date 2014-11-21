@@ -19,7 +19,7 @@ class Solution {
                     if (visit[j] == 1)
                         t++;
                 visit[t] = 1;
-                st[i] = '0'+t + 1;
+                st[i] = '0'+t+1;
             }
 
             string str(st, st + n);

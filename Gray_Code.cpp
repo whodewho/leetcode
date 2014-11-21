@@ -39,4 +39,24 @@ class Solution {
             }
             return result;
         }
+
+        int GrayToBinary(int n, int k)
+        {
+            int toReturn=0;
+            vector<int> gray;
+
+            for(int i=0;i<k;i++)
+            {
+                gray.push_back(n%2);
+                n/=2;
+            }
+            reverse(gray.begin(), gray.end());
+            int prev=0;
+            for(int i=0;i<k;i++)
+            {
+                prev=(prev+gray[i])%2;
+                toReturn=toReturn*2+prev;
+            }
+            return toReturn;
+        }
 };

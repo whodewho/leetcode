@@ -3,27 +3,6 @@ O(2^N)
  */
 class Solution {
     public:
-        vector<vector<int> > subsets(vector<int> &S) {
-            int N = S.size();
-            int max = 1 << N;
-            vector<vector<int> > res;
-            for (int i = 0; i < max; i++) {
-                vector<int> sub;
-                int k = i;
-                int j = 0;
-                while (k > 0) {
-                    if (k & 0x01) sub.push_back(S[j]);
-                    k >>= 1;
-                    j++;
-                }
-                sort(sub.begin(), sub.end());
-                if (find(res.begin(), res.end(), sub) == res.end()) {
-                    res.push_back(sub);
-                }
-            }
-            sort(res.begin(), res.end());
-            return res;
-        }
 
         void worker(int i,vector<int>& S, vector<int>& path,vector<vector<int> >& result)
         {
@@ -51,5 +30,27 @@ class Solution {
 
             worker(0,S,path,result);
             return result;
+        }
+
+        vector<vector<int> > subsets(vector<int> &S) {
+            int N = S.size();
+            int max = 1 << N;
+            vector<vector<int> > res;
+            for (int i = 0; i < max; i++) {
+                vector<int> sub;
+                int k = i;
+                int j = 0;
+                while (k > 0) {
+                    if (k & 0x01) sub.push_back(S[j]);
+                    k >>= 1;
+                    j++;
+                }
+                sort(sub.begin(), sub.end());
+                if (find(res.begin(), res.end(), sub) == res.end()) {
+                    res.push_back(sub);
+                }
+            }
+            sort(res.begin(), res.end());
+            return res;
         }
 };

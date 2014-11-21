@@ -11,8 +11,7 @@
 class Solution {
 	public:
 		ListNode *insertionSortList(ListNode *head) {
-			if (!head)
-				return head;
+			if (!head)return head;
 			ListNode* nHead = head;
 			head = head->next;
 			nHead->next = NULL;

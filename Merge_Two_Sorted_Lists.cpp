@@ -18,7 +18,7 @@ class Solution {
             if(!l2)return l1;
 
             ListNode * head=NULL;
-            ListNode *runner=NULL;
+            ListNode * runner=NULL;
             while(l1&&l2)
             {
                 if(l1->val<=l2->val)

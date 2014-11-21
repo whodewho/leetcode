@@ -3,6 +3,7 @@ O(M*N)
 
 O(M+N)
 */
+
 class Solution {
     public:
         char *strStr(char *haystack, char *needle) {

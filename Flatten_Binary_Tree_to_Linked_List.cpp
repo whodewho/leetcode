@@ -26,6 +26,7 @@ class Solution {
             worker(root);
             return;
         }
+        
         TreeNode *worker(TreeNode *root){
             if(root->left==NULL&&root->right==NULL)return root;
             if(root->left)

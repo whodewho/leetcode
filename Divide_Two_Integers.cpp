@@ -33,12 +33,10 @@ class Solution {
                         && (int) (pow(divisor, i) <= dividend)) {
                     i++;
                 }
-
-                if (i > 1) {
-                    i--;
-                    dividend = (int) (dividend - pow(divisor, i));
-                    result += pow(divisor, i - 1);
-                }
+            
+                i--;
+                dividend = (int) (dividend - pow(divisor, i));
+                result += pow(divisor, i - 1);
             }
 
             return sign * result;

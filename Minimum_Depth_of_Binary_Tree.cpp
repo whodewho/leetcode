@@ -41,4 +41,13 @@ class Solution {
             }
             return res;
         }
+
+        int minDepth(TreeNode *root) {
+            if(!root)return 0;
+            if(root->left==NULL&&root->right==NULL)return 1;
+            int result=1, tl=INT_MAX, tr=INT_MAX;
+            if(root->left)tl=minDepth(root->left);
+            if(root->right)tr=minDepth(root->right);
+            return 1+min(tl, tr);
+        }
 };
