@@ -12,17 +12,14 @@ class Solution {
                 if(num[i]>num[i-1])
                 {
                     sign=true;
-                    int j=i,tmp=num[i];
-                    while(j<num.size()&&num[j]>num[i-1]&&num[j]<=tmp)
+                    int j=i;
+                    while(j<num.size()&&num[j]>num[i-1])
                     {
-                        tmp=num[j];
                         j++;
                     }
                     j--;
-                    tmp=num[j];
-                    num[j]=num[i-1];
-                    num[i-1]=tmp;
-                    sort(num.begin()+i,num.end());
+                    swap(num[i-1], num[j]);
+                    reverse(num.begin()+i,num.end());
                     break;
                 }
             }
