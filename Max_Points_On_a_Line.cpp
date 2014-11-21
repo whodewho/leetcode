@@ -23,8 +23,13 @@ class Solution {
 					int x=points[i].x-points[j].x;
 					int y=points[i].y-points[j].y;
 					int g=gcd(x,y);
-					if(!g){same++;continue;}
-					x/=g,y/=g;
+					if(!g)
+					{
+						same++;
+						continue;
+					}
+					x/=g；
+					y/=g;
 					mx=max(mx,++count[to_string(x)+" "+to_string(y)]);
 				}
 				result=max(result,mx+same);
