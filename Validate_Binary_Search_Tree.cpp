@@ -32,29 +32,14 @@ class Solution {
             return true;
         }
 
-        // pre-order walk with updating min and max
-        // takes O(n) time
-        bool isValidBST2(TreeNode* node) {
-            return isValidBSTHelper2(node, INT_MIN, INT_MAX);
-        }
-
-        bool isValidBSTHelper2(TreeNode* node, int min, int max) {
-            if (node == NULL) return true;
-            if (min  < node->val && node->val < max) {
-                return isValidBSTHelper2(node->left, min, node->val)
-                    && isValidBSTHelper2(node->right, node->val, max);
-            }
-            return false;
-        }
-
         // in-order walk and check if it is no-decreasing
         // takes O(n) time
-        bool isValidBST3(TreeNode* node) {
+        bool isValidBST(TreeNode* node) {
             int prev = INT_MIN;
             return isValidBSTHelper3(node, prev);
         }
 
-        bool isValidBSTHelper3(TreeNode* node, int &prev) {
+        bool isValidBSTHelper(TreeNode* node, int &prev) {
             if (node == NULL) return true;
             if (isValidBSTHelper3(node->left, prev)) {
                 if (prev < node->val) {
@@ -62,6 +47,21 @@ class Solution {
                     return isValidBSTHelper3(node->right, prev);
                 }
                 return false;
+            }
+            return false;
+        }
+
+        // pre-order walk with updating min and max
+        // takes O(n) time
+        bool isValidBST(TreeNode* node) {
+            return isValidBSTHelper2(node, INT_MIN, INT_MAX);
+        }
+
+        bool isValidBSTHelper(TreeNode* node, int min, int max) {
+            if (node == NULL) return true;
+            if (min  < node->val && node->val < max) {
+                return isValidBSTHelper2(node->left, min, node->val)
+                    && isValidBSTHelper2(node->right, node->val, max);
             }
             return false;
         }

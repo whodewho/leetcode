@@ -11,7 +11,7 @@
 
 class Solution {
     public:
-
+      //this will time limit exceed, but it should not be judged
       bool isMatch(const char *s, const char *p)
       {
         int m=strlen(s);
@@ -24,7 +24,7 @@ class Solution {
           {
             for(int i=m-1;i>=0;i--)
               dp[i+1]=dp[i]&&(p[j]=='?'||s[i]==p[j]);
-              //dp[i]以为这dp[j-1][i]匹配成功了
+              //dp[j][i+1]以为这dp[j-1][i]匹配成功了，必须降序
           }
           else
           {

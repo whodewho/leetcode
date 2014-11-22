@@ -25,7 +25,7 @@ class Solution {
                     return result * sign;
                 }
                 result = (str[i] - '0') + last * 10;
-                if (result < 0 || last != result / 10) {
+                if (last != result / 10) {//overflow
                     if (sign == 1)
                         return INT_MAX;
                     else

@@ -23,7 +23,6 @@ class Solution {
                 }
             }
 
-            if(target<A[l])return l;
-            else return h+1;
+            return h+1;
         }
 };

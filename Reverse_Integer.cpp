@@ -1,4 +1,4 @@
-//O(N) bits
+//overflow,
 class Solution {
     public:
         int reverse(int x) {
@@ -9,9 +9,19 @@ class Solution {
             int result=0;
             while(x)
             {
-                result=result*10+x%10;
+                int tmp=result*10+x%10;
+                if(tmp/10!=result)return 0;
+                result=tmp;
                 x=x/10;
-            }
+            }   
             return sign*result;
+        }
+
+        int reverse(int x) {
+            int sign=1;
+            if(x<0)sign=-1;
+            string s=to_string(abs(x));
+            std::reverse(s.begin(), s.end());
+            return sign*atoi(s.c_str());
         }
 };

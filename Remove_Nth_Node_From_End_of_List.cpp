@@ -30,9 +30,17 @@ class Solution {
                         father=head;
                 }
             }
-            if(father==NULL)return head->next;
-            else{
-                father->next=father->next->next;
+            if(father==NULL)
+            {
+                ListNode* toReturn=head->next;
+                delete head;
+                return toReturn;
+            }
+            else
+            {
+                ListNode* toDelete=father->next;
+                father->next=toDelete->next;
+                delete toDelete;
                 return head;
             }
         }

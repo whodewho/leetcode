@@ -7,7 +7,8 @@ class Solution {
             // Start typing your C/C++ solution below
             // DO NOT write int main() function
             vector<string> res;
-            for (int i = 0; i < words.size();) {
+            int i=0;
+            while(i < words.size()) { {
                 int sum1 = words[i].size(), sum2 = sum1;
                 int j = i + 1;
                 for (; j < words.size() && sum1 + 1 + words[j].size() <= L; j++) {

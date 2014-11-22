@@ -19,7 +19,7 @@ class Solution {
             // DO NOT write int main() function    
 
             if( 0 == *p) return 0 == *s;
-
+            
             if(*(p+1) != '*')
             {
                 if(*p == *s || (*p) == '.' && (*s) != 0)

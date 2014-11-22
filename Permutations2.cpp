@@ -4,38 +4,33 @@
 class Solution {
     public:
 
-        void reverse(vector<int> &num, int i, int j) {
-            while (i < j)
-                swap(num[i++], num[j--]);
-        }
-
         void nextPermutation(vector<int> &num) {
-            int N = num.size();
-            if (N < 2)
-                return;
-            int i = N - 2;
-            while (i >= 0 && num[i] >= num[i + 1])
-                i--;
-            if (i == -1) {
-                reverse(num, 0, N - 1);
-                return;
+            // Start typing your C/C++ solution below
+            // DO NOT write int main() function
+            int i=num.size()-1;
+            bool sign=false;
+            for(;i>0;i--)
+            {
+                if(num[i]>num[i-1])
+                {
+                    sign=true;
+                    int j=i;
+                    while(j<num.size()&&num[j]>num[i-1])
+                    {
+                        j++;
+                    }
+                    j--;
+                    swap(num[i-1], num[j]);
+                    reverse(num.begin()+i,num.end());
+                    break;
+                }
             }
-            int j = N - 1;
-            while (j > i && num[j] <= num[i])
-                j--;
-            assert(j > i);
-            swap(num[i], num[j]);
-            reverse(num, i + 1, N - 1);
+            if(!sign)reverse(num.begin(),num.end());
         }
 
         vector<vector<int> > permuteUnique(vector<int> &num) {
             vector<vector<int> > result;
             do {
-                /*
-                   for (int i = 0; i < num.size(); i++)
-                   cout << num[i] << " ";
-                   cout << endl;
-                 */
                 result.push_back(num);
                 nextPermutation(num);
             } while (!equal(result[0].begin(), result[0].end(), num.begin()));

@@ -23,7 +23,7 @@ class Solution {
             return vec[n];
         }
 
-        int numTrees1(int n) {
+        int numTrees(int n) {
             if (n < 2) return 1;
             int res = 0;
             for (int i = 0; i < n; i++)
@@ -31,7 +31,7 @@ class Solution {
             return res;
         }
 
-        int numTrees2(int n) {
+        int numTrees(int n) {
             int dp[n+1];
             memset(dp, 0, (n+1)*sizeof(int));
             dp[0] = 1;
