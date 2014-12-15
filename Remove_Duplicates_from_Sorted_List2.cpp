@@ -24,8 +24,9 @@ class Solution {
                     int tmp=head->val;
                     do
                     {
-                        //delete head
-                        head=head->next;
+                        ListNode* tmpHead=head;
+                        head=head->next;                        
+                        delete tmpHead;
                     }while(head!=NULL&&head->val==tmp);
                 }
                 else
@@ -33,13 +34,12 @@ class Solution {
                     if(newHead==NULL)
                     {
                         newHead=head;
-                        newCurr=head;
                     }
                     else
                     {
                         newCurr->next=head;
-                        newCurr=head;
                     }
+                    newCurr=head;
                     head=head->next;
                     newCurr->next=NULL;
                 }

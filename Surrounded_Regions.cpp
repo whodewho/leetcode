@@ -2,14 +2,8 @@
 
 class Solution {
     public:
-        void solve(vector<vector<char>> &board) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            //solve1(board);
-            solve2(board);
-        }
 
-        void solve1(vector<vector<char>> &board)
+        void solve(vector<vector<char>> &board)
         {
             if(board.empty())return;
             int M=board.size();
@@ -44,7 +38,7 @@ class Solution {
             if(j<N-1&&board[i][j+1]=='O')dfs(board,i,j+1);
         }
 
-        void solve2(vector<vector<char>> &board)
+        void solve(vector<vector<char>> &board)
         {
             if(board.empty())return;
             int M=board.size();

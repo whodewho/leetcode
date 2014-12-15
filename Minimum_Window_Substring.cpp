@@ -17,10 +17,8 @@ class Solution {
             queue<int> queue;
             if(M<N)return res;
 
-            int counts[128],sum=N,min=M+1;
-            fill(counts,counts+128,0);
-            bool in[128];
-            fill(in,in+128,false);
+            int counts[128]={0},sum=N,min=M+1;
+            bool in[128]={false};
 
             for(int i=0;i<N;i++)
             {

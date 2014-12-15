@@ -3,7 +3,6 @@
    O(1)
  */
 
-
 class Solution {
 	public:
 		vector<vector<int> > threeSum(vector<int> &num) {
@@ -14,7 +13,6 @@ class Solution {
 			if(!m)return result;
 
 			sort(num.begin(),num.end());
-			vector<int> last;
 			for(int i=0;i<m-2;i++)
 			{
 				if (i>0 && num[i]==num[i-1]) continue; 

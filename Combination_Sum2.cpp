@@ -35,10 +35,8 @@ class Solution {
             for (int i = 0; i < candidates.size(); i++) {
                 if (number.find(candidates[i]) == number.end()) {
                     newCandidates.push_back(candidates[i]);
-                    number.insert(pair<int, int>(candidates[i], 1));
-                } else {
-                    number[candidates[i]] = number[candidates[i]] + 1;
-                }
+                } 
+                number[candidates[i]] = number[candidates[i]] + 1;
             }
 
             vector<vector<int> > result;

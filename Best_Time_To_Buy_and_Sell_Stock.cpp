@@ -11,8 +11,7 @@ class Solution {
             for(int i=1;i<prices.size();i++)
             {
                 if(prices[i]<prices[min_i])min_i=i;
-                int diff=prices[i]-prices[min_i];
-                if(diff>res)res=diff;
+                res=max(res, prices[i]-prices[min_i]);
             }
             return res;
         }

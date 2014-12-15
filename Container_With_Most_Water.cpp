@@ -15,7 +15,7 @@ class Solution {
 				}
 				else
 				{
-					while(height[j]<=h)j--;
+					while(j>i&&height[j]<=h)j--;
 				}
 				result=max(min(height[i], height[j]) * (j-i), result);
 			}

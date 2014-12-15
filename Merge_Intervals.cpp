@@ -37,4 +37,3 @@ vector<Interval> merge(vector<Interval> &intervals) {
     }
     return res;
 }
-

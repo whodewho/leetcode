@@ -36,8 +36,7 @@ class LRUCache{
             putToHead(p);
             return p->value;
         }
-        else
-            return -1;
+        return -1;
     }
 
     void set(int k, int val) {

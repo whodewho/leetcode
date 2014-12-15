@@ -27,13 +27,12 @@ class Solution {
 					if(result==NULL)
 					{
 						result=tmp;
-						last=head;
 					}
 					else
 					{
 						last->next=tmp;
-						last=head;
 					}
+					last=head;
 				}
 				else
 				{

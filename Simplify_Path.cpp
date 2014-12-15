@@ -6,7 +6,8 @@ class Solution {
         string simplifyPath(string path) {
             // Note: The Solution object is instantiated only once and is reused by each test case.
             vector<string> result;
-            for(int i=0;i<path.size();)
+            int i=0;
+            while(i<path.size())
             {
                 if(path[i]=='/')
                 {

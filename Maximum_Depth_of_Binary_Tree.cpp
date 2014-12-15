@@ -42,11 +42,11 @@ class Solution {
             return depth;
         }
 
-        int maxDepth2(TreeNode *root) {
+        int maxDepth(TreeNode *root) {
             return maxDepthHelper2(root);
         }
 
-        int maxDepthHelper2(TreeNode *node) {
+        int maxDepthHelper(TreeNode *node) {
             if (node == NULL) return 0;
             return 1+max(maxDepthHelper2(node->left), maxDepthHelper2(node->right));
         }

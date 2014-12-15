@@ -1,4 +1,4 @@
-i/**
+/**
   * Definition for a point.
   * struct Point {
   *     int x;

@@ -48,7 +48,7 @@ class Solution {
             return res;
         }
 
-        vector<vector<int> > levelOrder2(TreeNode *root) {
+        vector<vector<int> > levelOrder(TreeNode *root) {
             vector<vector<int> > res;
             vector<int> row;
             queue<TreeNode*> currQ, nextQ;
@@ -68,7 +68,7 @@ class Solution {
             return res;
         }
 
-        vector<vector<int> > levelOrder3(TreeNode *root) {
+        vector<vector<int> > levelOrder(TreeNode *root) {
             vector<vector<int> > res;
             vector<int> row;
             queue<TreeNode*> currQ;

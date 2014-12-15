@@ -8,11 +8,11 @@ class Solution {
             int common_bits=0;
             for(int i=0;i<n;i++)
             {
-                //appear more than 1,means 2 and 3, go to 2 
+                //appear more than 1, means 2 and 3, go to two
                 twos=twos|(ones&A[i]);
-                //appear odd time, means 1 and 3 
+                //appear odd time, means 1 and 3, go to one
                 ones=ones^A[i];
-                //appear in ones and in twos
+                //appear in 3 times, get ~, update two and one
                 common_bits=~(twos&ones);
                 ones=ones&common_bits;
                 twos=twos&common_bits;

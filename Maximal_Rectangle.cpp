@@ -33,7 +33,7 @@ class Solution {
         }
 
         // based on stack, takes O(n^2) time
-        int maximalRectangle2(vector<vector<char> > &matrix) {
+        int maximalRectangle(vector<vector<char> > &matrix) {
             int M = matrix.size();
             if (M == 0) return 0;
             int N = matrix[0].size();

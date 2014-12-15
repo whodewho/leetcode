@@ -6,12 +6,11 @@ class Solution {
         int totalNQueens(int n) {
             // Start typing your C/C++ solution below
             // DO NOT write int main() function
-            int *p = (int *) malloc(sizeof(int) * n);
+            int *p = new int[n];
             int num=0;
             placeQueen(0, n, p, num);
             return num;
         }
-
 
         bool check(int row, int col, int *p) {
             for (int i = 0; i < row; i++) {

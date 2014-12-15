@@ -13,17 +13,23 @@ class Solution {
                 if (s[i] == '(')
                 {
                     k++;
-                    l++;
                 }
                 else
                 {
                     k--;
-                    l++;
                 }
+
+                l++;
+
                 if (k == 0 && l > res)
+                {
                     res = l;
+                }
                 else if (k < 0)
-                    k = 0, l = 0;
+                {
+                    k = 0;
+                    l = 0;
+                }
             }
 
             k = 0, l = 0;
@@ -31,17 +37,23 @@ class Solution {
                 if (s[i] == ')')
                 {
                     k++;
-                    l++;
                 }
                 else
                 {
                     k--;
-                    l++;
                 }
+                
+                l++;
+
                 if (k == 0 && l > res)
+                {
                     res = l;
+                }
                 else if (k < 0)
-                    k = 0, l = 0;
+                {
+                    k = 0;
+                    l = 0;
+                }
             }
             return res;
         }

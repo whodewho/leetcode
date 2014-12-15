@@ -13,6 +13,7 @@ class Solution {
                 {
                     sign=true;
                     int j=i;
+                    //could binary search here, but still O(N)
                     while(j<num.size()&&num[j]>num[i-1])
                     {
                         j++;

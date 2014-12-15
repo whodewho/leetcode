@@ -2,30 +2,27 @@
 
 class Solution {
     public:
-        int removeDuplicates(int A[], int n) {
-            // Start typing your C/C++ solution below
-            // DO NOT write int main() function
-            if(n<=1)return n;
-            int count=0,k=0;
-            for(int i=1;i<n;i++)
+        int removeDuplicates(int A[], int n) 
+        {
+            if(!n)return 0;
+            int i=0;
+            for(int j=1;j<n;j++)
             {
-                if(A[i]==A[k])
-                {
-                    if(count<1)
-                    {
-                        count++;
-                        A[++k]=A[i];
-                    }
-                }
-                else
-                {
-                    A[++k]=A[i];
-                    count=0;
-                }
+                if(A[i]!=A[j]||(i==0||(A[i-1]!=A[j])))A[++i]=A[j];
             }
-            for(int j=k+1;j<n;j++)
+            return i+1;
+        }
+
+        int removeAllDuplicats(int A[], int n)
+        {
+            if(!n)return 0;
+            int i=0, k=-1;
+            while(i<n)
             {
-                A[j]='\0';
+                int j=i+1;
+                while(j<n&&A[j]==A[i])j++;
+                if(j==i+1)k++;
+                else i=j;
             }
             return k+1;
         }

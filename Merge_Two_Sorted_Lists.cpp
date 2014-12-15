@@ -26,13 +26,12 @@ class Solution {
                     if(!head)
                     {
                         head=l1;
-                        runner=l1;
                     }
                     else
                     {
                         runner->next=l1;
-                        runner=l1;
                     }
+                    runner=l1;
                     l1=l1->next;
                 }
                 else
@@ -40,13 +39,12 @@ class Solution {
                     if(!head)
                     {
                         head=l2;
-                        runner=l2;
                     }
                     else
                     {
                         runner->next=l2;
-                        runner=l2;
                     }
+                    runner=l2;
                     l2=l2->next;
                 }
             }

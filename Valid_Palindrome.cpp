@@ -12,12 +12,13 @@ class Solution {
                     i++;
                     continue;
                 }
-                else if(!isalnum(s[j]))
+                if(!isalnum(s[j]))
                 {
                     j--;
                     continue;
                 }
-                else if(tolower(s[i])!=tolower(s[j]))
+                
+                if(tolower(s[i])!=tolower(s[j]))
                 {
                     return false;
                 }

@@ -16,12 +16,4 @@ class Solution {
             }   
             return sign*result;
         }
-
-        int reverse(int x) {
-            int sign=1;
-            if(x<0)sign=-1;
-            string s=to_string(abs(x));
-            std::reverse(s.begin(), s.end());
-            return sign*atoi(s.c_str());
-        }
 };
