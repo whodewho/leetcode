@@ -13,7 +13,7 @@ class Solution {
             stack<int> stk;
             for (int i = 0; i < n; i++) {
                 while (!stk.empty()) {
-                    if (height[stk.top()] <= height[i]) stk.pop();
+                    if (height[i] <= height[stk.top()]) stk.pop();
                     else break;
                 }
                 int j = (stk.empty()) ? -1 : stk.top();
